@@ -18,10 +18,6 @@ const Footer = () => {
     new Date().getFullYear()
   );
 
-  const statusColors = ["green-600", "yellow-600", "red-600"];
-
-  const [statusColor, setStatusColor] = useState<string>("green-600");
-
   const systemStatus = [
     "All systems are operational",
     "System is under maintenance",
@@ -35,7 +31,6 @@ const Footer = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      setStatusColor(statusColors[0]);
       setSystemStatusMessage(systemStatus[0]);
     }, 5000);
   });
@@ -58,7 +53,7 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-row items-center justify-center gap-1">
-            <div className={`h-2 w-2 rounded-full bg-${statusColor}`}></div>
+            <div className={`h-2 w-2 rounded-full bg-green-600`}></div>
             <h3 className="text-slate-200">{systemStatusMessage}</h3>
           </div>
           <Link
