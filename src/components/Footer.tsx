@@ -20,7 +20,7 @@ const Footer = () => {
 
   const statusColors = ["green-600", "yellow-600", "red-600"];
 
-  const [statusColor, setStatusColor] = useState<string>(statusColors[2]);
+  const [statusColor, setStatusColor] = useState<string>("green-600");
 
   const systemStatus = [
     "All systems are operational",
@@ -58,7 +58,7 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-row items-center justify-center gap-1">
-            <div className={`h-2 w-2 rounded-full bg-green-600`}></div>
+            <div className={`h-2 w-2 rounded-full bg-${statusColor}`}></div>
             <h3 className="text-slate-200">{systemStatusMessage}</h3>
           </div>
           <Link
