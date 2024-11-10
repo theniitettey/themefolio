@@ -25,7 +25,7 @@ const NavLink: React.FC<NavLinkProps> = ({
   return (
     <Link
       href={href}
-      className={`flex flex-row items-center justify-center gap-1 text-xs font-medium ${
+      className={`flex flex-row items-center justify-center gap-1 text-xs sm:text-lg sm:gap-2 font-medium ${
         isActive
           ? "text-white border-[1.3px] bg-slate-400 border-slate-400 border-opacity-25  bg-opacity-25 py-1 px-2 rounded-xl"
           : "text-slate-300"
@@ -67,15 +67,14 @@ const Header = () => {
     setActive(pathname);
   }, [pathname]);
   return (
-    <header className="flex flex-col gap-6">
+    <header className="flex flex-col gap-6 sm:gap-8">
       <div className="flex flex-row items-center justify-between">
         <Image
           src={Icons.coloredLogo}
           alt="Colored logo"
-          width={20}
-          height={20}
+          className="w-5 h-5 sm:w-10 sm:h-10"
         />
-        <div className="flex flex-row items-center justify-center gap-3 border-[1.6px] border-solid bg-[#424242] border-[#afafaf] border-opacity-20 rounded-xl p-1 bg-opacity-40">
+        <div className="flex flex-row items-center justify-center gap-3 border-[1.6px] border-solid bg-[#424242] border-[#afafaf] border-opacity-20 rounded-xl p-1 bg-opacity-40 sm:p-3 sm:rounded-2xl">
           <Link href="mailto:michaelperryt97@gmail.com" target="blank">
             <FiMail size={15} className="text-white" />
           </Link>
@@ -88,7 +87,7 @@ const Header = () => {
         </div>
       </div>
       <div>
-        <nav className="flex flex-row items-center justify-start gap-2">
+        <nav className="flex flex-row items-center justify-start gap-2 sm:gap-4">
           {Links.map((link) => (
             <NavLink
               key={link.href}

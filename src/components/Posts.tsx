@@ -10,8 +10,11 @@ interface IPost {
 
 const Posts: React.FC<IPost> = ({ title, date, id }) => {
   return (
-    <Link href={`/blog/${id}`} className="flex flex-col gap-[0.1rem]">
-      <div className="flex flex-row justify-between items-center text-xs">
+    <Link
+      href={`/blog/${id}`}
+      className="flex flex-col gap-[0.1rem] sm:gap-[0.4rem]"
+    >
+      <div className="flex flex-row justify-between items-center text-xs sm:text-lg">
         <h3>{title}</h3>
         <p className="text-slate-300">{date}</p>
       </div>
