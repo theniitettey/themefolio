@@ -173,6 +173,9 @@ const Home = () => {
               />
             );
           })}
+          <Link href="/blogs" className="text-[#BAABAB] text-xs sm:text-lg">
+            see all posts
+          </Link>
         </div>
       </div>
     </div>
