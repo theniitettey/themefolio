@@ -42,8 +42,8 @@ const Footer = () => {
     setCurrentYear(new Date().getFullYear());
   }, []);
   return (
-    <footer className="flex flex-col items-start justify-start gap-1 text-xs font-medium text-slate-400 mt-4">
-      <div className="h-[1px] w-full bg-slate-400 mb-2"></div>
+    <footer className="flex flex-col items-start justify-start gap-1 sm:gap-3 text-xs sm:text-xl font-medium text-slate-400 mt-4 sm:mt-8">
+      <div className="h-[1px] w-full bg-slate-400 mb-2 sm:mb-4"></div>
       <div>
         &copy;{" " + currentYear} Michael Perry Tettey. All rights reserved.{" "}
       </div>
@@ -57,7 +57,11 @@ const Footer = () => {
         <h3 className="text-slate-200">{systemStatusMessage}</h3>
       </div>
       <div className="mt-3">
-        <Image src={Icons.outlinedLogo} alt="Logo" width={30} height={30} />
+        <Image
+          src={Icons.outlinedLogo}
+          alt="Logo"
+          className="w-10 h-10 sm:w-20 sm:h-20"
+        />
       </div>
     </footer>
   );
