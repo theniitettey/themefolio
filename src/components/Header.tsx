@@ -62,7 +62,7 @@ const Links: Array<NavLinkProps> = [
 
 const Header = () => {
   const pathname = usePathname();
-  const [active, setActive] = useState<string>("/");
+  const [active, setActive] = useState<string>(pathname);
   useEffect(() => {
     setActive(pathname);
   }, [pathname]);
@@ -96,8 +96,8 @@ const Header = () => {
               href={link.href}
               isActive={
                 link.href === "/"
-                  ? pathname === "/"
-                  : pathname.startsWith(link.href)
+                  ? active === "/"
+                  : active.startsWith(link.href)
               }
             />
           ))}
