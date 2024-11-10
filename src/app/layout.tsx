@@ -36,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${poppins.className} antialiased p-4 sm:container sm:mx-auto sm:w-[50%]`}
+        className={`${poppins.className} antialiased p-4 lg:container lg:mx-auto sm:w-full lg:w-[50%]`}
       >
         <Header />
         {children}

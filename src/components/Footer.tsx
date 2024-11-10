@@ -42,26 +42,30 @@ const Footer = () => {
     setCurrentYear(new Date().getFullYear());
   }, []);
   return (
-    <footer className="flex flex-col items-start justify-start gap-1 sm:gap-3 text-xs sm:text-xl font-medium text-slate-400 mt-4 sm:mt-8">
-      <div className="h-[1px] w-full bg-slate-400 mb-2 sm:mb-4"></div>
-      <div>
-        &copy;{" " + currentYear} Michael Perry Tettey. All rights reserved.{" "}
-      </div>
-      <div className={`${roboto.className}`}>
-        version:{" "}
-        <span className="text-green-600 bg-slate-600">{currentYear}</span>
-        .11.10/16{" "}
-      </div>
-      <div className="flex flex-row items-center justify-center gap-1">
-        <div className={`h-2 w-2 rounded-full bg-${statusColor}`}></div>
-        <h3 className="text-slate-200">{systemStatusMessage}</h3>
-      </div>
-      <div className="mt-3">
-        <Image
-          src={Icons.outlinedLogo}
-          alt="Logo"
-          className="w-10 h-10 sm:w-20 sm:h-20"
-        />
+    <footer className="mt-4 sm:mt-8">
+      <div className="h-[1px] w-full bg-slate-400 mb-4 sm:mb-8"></div>
+      <div className="flex flex-row justify-between items-center">
+        <div className="flex flex-col items-start justify-start gap-1 sm:gap-3 text-xs sm:text-xl font-medium text-slate-400">
+          <div>
+            &copy;{" " + currentYear} Michael Perry Tettey. All rights reserved.{" "}
+          </div>
+          <div className={`${roboto.className}`}>
+            version:{" "}
+            <span className="text-green-600 bg-slate-600">{currentYear}</span>
+            .11.10/16{" "}
+          </div>
+          <div className="flex flex-row items-center justify-center gap-1">
+            <div className={`h-2 w-2 rounded-full bg-${statusColor}`}></div>
+            <h3 className="text-slate-200">{systemStatusMessage}</h3>
+          </div>
+        </div>
+        <div>
+          <Image
+            src={Icons.outlinedLogo}
+            alt="Logo"
+            className="w-10 h-10 sm:w-20 sm:h-20"
+          />
+        </div>
       </div>
     </footer>
   );

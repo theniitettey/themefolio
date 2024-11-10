@@ -8,6 +8,8 @@ import { FaRegHandPeace } from "react-icons/fa6";
 import { BsJournalText } from "react-icons/bs";
 import { FiYoutube } from "react-icons/fi";
 import { MdOutlineFeaturedPlayList } from "react-icons/md";
+import { TfiPencil } from "react-icons/tfi";
+import { TbLanguageHiragana } from "react-icons/tb";
 
 interface IPost {
   title: string;
@@ -173,7 +175,29 @@ const Home = () => {
               />
             );
           })}
+          <Link
+            href="/blogs"
+            className="text-[#BAABAB] text-xs sm:text-lg font-medium"
+          >
+            see all posts
+          </Link>
         </div>
+      </div>
+      <div className="flex flex-row gap-2 sm:gap-4">
+        <Link
+          href="/thoughts"
+          className="text-[#B5B3B3] border-[1.3px] bg-[#B5B3B3] border-[#B5B3B3] border-opacity-25 border-dashed bg-opacity-25 py-1 px-2 rounded-xl text-xs sm:text-lg font-medium flex flex-row gap-1 w-fit items-center justify-center"
+        >
+          <TfiPencil />
+          Thoughts
+        </Link>
+        <Link
+          href="/hiragana"
+          className="text-[#B5B3B3] border-[1.3px] bg-[#B5B3B3] border-[#B5B3B3] border-opacity-25 border-dashed bg-opacity-25 py-1 px-2 rounded-xl text-xs sm:text-lg font-medium flex flex-row gap-1 w-fit items-center justify-center"
+        >
+          <TbLanguageHiragana />
+          Hiragana
+        </Link>
       </div>
     </div>
   );
