@@ -94,7 +94,11 @@ const Header = () => {
               name={link.name}
               icon={link.icon}
               href={link.href}
-              isActive={active.includes(link.href)}
+              isActive={
+                link.href === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(link.href)
+              }
             />
           ))}
         </nav>
