@@ -54,7 +54,7 @@ const Home = () => {
           />
           Akwaaba
         </div>
-        <h2 className="mt-1 sm:mt-2 font-bold text-sm sm:text-lg text-grey-100 dark:text-white">
+        <h2 className="mt-2 sm:mt-2 font-bold text-sm sm:text-lg text-grey-100 dark:text-white">
           いらっしゃいませ
         </h2>
       </div>
