@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
-import { Header, Footer } from "@/components";
+import { Header, Footer, ThemeProvider } from "@/components";
 import "./globals.css";
 
 const poppins = Poppins({
@@ -8,6 +8,7 @@ const poppins = Poppins({
   display: "swap",
   subsets: ["latin"],
   adjustFontFallback: true,
+  variable: "--font-poppins",
 });
 
 export const metadata: Metadata = {
@@ -38,9 +39,16 @@ export default function RootLayout({
       <body
         className={`${poppins.className} antialiased p-4 lg:container lg:mx-auto sm:w-full lg:w-[50%]`}
       >
-        <Header />
-        {children}
-        <Footer />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          <main>{children}</main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

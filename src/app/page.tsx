@@ -42,13 +42,21 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-20">
       <div>
-        <div className="flex flex-row items-center justify-center gap-1 border-[2px] border-solid bg-[#1EC3F7] rounded-xl p-1 bg-opacity-50 text-[#1EC3F7] border-[#1EC3F7] font-semibold text-xs w-fit mt-8 sm:text-base sm:mt-20 sm:rounded-2xl">
-          <FaRegHandPeace size={15} className="text-[#1EC3F7]" />
+        <div
+          className="flex flex-row items-center justify-center gap-1 border-[2px] border-solid dark:bg-glow-100 rounded-xl p-1 bg-opacity-50 dark:bg-opacity-50 dark:text-glow-100 dark:border-glow-100
+        bg-glow-200 text-glow-200 border-glow-200 font-semibold text-xs w-fit mt-20 sm:text-base sm:mt-20 sm:rounded-2xl"
+        >
+          <FaRegHandPeace
+            size={15}
+            className="dark:text-glow-100 text-glow-200"
+          />
           Akwaaba
         </div>
-        <h2 className="mt-1 font-bold text-sm sm:text-lg">いらっしゃいませ</h2>
+        <h2 className="mt-1 sm:mt-2 font-bold text-sm sm:text-lg text-grey-100 dark:text-white">
+          いらっしゃいませ
+        </h2>
       </div>
 
       <div className="relative sm:w-[60%]">
@@ -61,13 +69,13 @@ const Home = () => {
             className="opacity-60 z-0 sm:hidden"
           />
         </div>
-        <h1 className="text-xl sm:text-3xl font-bold sm:mt-4">
+        <h1 className="text-xl sm:text-3xl font-bold text-grey-100 dark:text-white">
           Michael Perry Nii Tettey
         </h1>
-        <h2 className="text-sm sm:text-xl font-normal text-[#BAABAB]">
+        <h2 className="text-sm sm:text-xl font-normal dark:text-ground-200 text-grey-200">
           Junior Software Engineer at QuiverTech Solutions
         </h2>
-        <p className="mt-2 text-xs sm:text-lg sm:mt-8 font-medium">
+        <p className="mt-2 text-xs sm:text-lg sm:mt-8 font-medium text-grey-100 dark:text-white">
           Building polished software experiences with magical, unique and
           delightful details, for the web. I aim to create beautiful and
           functional software that is both intuitive and enjoyable for users.
@@ -81,19 +89,19 @@ const Home = () => {
           alt="Doodle"
           width={100}
           height={100}
-          className="mt-4 sm:mt-8"
+          className="mt-4 sm:mt-8 "
         />
       </div>
       <div className="flex flex-col gap-4">
-        <div className="flex flex-row gap-1 font-semibold text-white text-md items-center justify-left sm:text-lg">
+        <div className="flex flex-row gap-1 font-semibold text-md items-center justify-left sm:text-lg text-grey-100 dark:text-white">
           <MdOutlineFeaturedPlayList size={20} />
           Featured
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-          <div className="flex flex-col px-2 pt-3 border-[1.5px] border-solid rounded-lg bg-[#262626] border-[#BAABAB] bg-opacity-35 border-opacity-25">
+          <div className="flex flex-col px-2 pt-3 border-[1.8px] border-solid rounded-lg dark:bg-ground-100 dark:border-ground-200 border-ground-700 bg-ground-700 dark:bg-opacity-35 dark:border-opacity-25 bg-opacity-10 border-opacity-60  text-grey-100 dark:text-white flex-1">
             <div>
               <h2 className="text-sm sm:text-base font-bold">EventFlick</h2>
-              <h3 className=" text-xs sm:text-sm mt-1 mb-3 flex-1">
+              <h3 className=" text-xs sm:text-sm mt-1 mb-3">
                 Event Ticketing and Management SaaS platform for event
                 organizers
               </h3>
@@ -112,10 +120,10 @@ const Home = () => {
               className="w-full"
             />
           </div>
-          <div className="flex flex-col px-2 pt-3 border-[1.5px] border-solid rounded-lg bg-[#262626] border-[#BAABAB] bg-opacity-35 border-opacity-25">
+          <div className="flex flex-col px-2 pt-3 border-[1.8px] border-solid rounded-lg dark:bg-ground-100 dark:border-ground-200 border-ground-700 bg-ground-700 dark:bg-opacity-35 dark:border-opacity-25 bg-opacity-10 border-opacity-60  text-grey-100 dark:text-white flex-1">
             <div>
               <h2 className="text-sm font-bold sm:text-base">EventFlick</h2>
-              <h3 className=" text-xs sm:text-sm mt-1 mb-3 flex-1">
+              <h3 className=" text-xs sm:text-sm mt-1 mb-3">
                 Event Ticketing and Management SaaS platform for event
                 organizers
               </h3>
@@ -134,7 +142,7 @@ const Home = () => {
               className="w-full"
             />
           </div>
-          <div className="flex flex-col px-2 pt-3 border-[1.5px] border-solid rounded-lg bg-[#262626] border-[#BAABAB] bg-opacity-35 border-opacity-25">
+          <div className="flex flex-col px-2 pt-3 border-[1.8px] border-solid rounded-lg dark:bg-ground-100 dark:border-ground-200 border-ground-700 bg-ground-700 dark:bg-opacity-35 dark:border-opacity-25 bg-opacity-10 border-opacity-60  text-grey-100 dark:text-white flex-auto">
             <div>
               <h2 className="text-sm sm:text-base font-bold">
                 <FiYoutube
@@ -143,7 +151,7 @@ const Home = () => {
                 />
                 Devlog
               </h2>
-              <h3 className=" text-xs sm:text-sm mt-1 mb-3 flex-1">
+              <h3 className=" text-xs sm:text-sm mt-1 mb-3">
                 This is a Youtube channel I share progress on stuff I&apos;m
                 working on. You&apos;ll also find some tutorials on code, 3d,
                 etc. It&apos;s fun, check it out!
@@ -160,7 +168,7 @@ const Home = () => {
         </div>
       </div>
       <div className="flex flex-col gap-4">
-        <div className="flex flex-row gap-1 font-semibold text-white text-md sm:text-lg items-center justify-left">
+        <div className="flex flex-row gap-1 font-semibold text-grey-100 dark:text-white text-md sm:text-lg items-center justify-left">
           <BsJournalText size={20} />
           Recent Posts
         </div>
@@ -177,27 +185,27 @@ const Home = () => {
           })}
           <Link
             href="/blogs"
-            className="text-[#BAABAB] text-xs sm:text-lg font-medium"
+            className="text-ground-600 text-xs sm:text-lg font-medium"
           >
             see all posts
           </Link>
         </div>
-      </div>
-      <div className="flex flex-row gap-2 sm:gap-4">
-        <Link
-          href="/thoughts"
-          className="text-[#B5B3B3] border-[1.3px] bg-[#B5B3B3] border-[#B5B3B3] border-opacity-25 border-dashed bg-opacity-25 py-1 px-2 rounded-xl text-xs sm:text-lg font-medium flex flex-row gap-1 w-fit items-center justify-center"
-        >
-          <TfiPencil />
-          Thoughts
-        </Link>
-        <Link
-          href="/hiragana"
-          className="text-[#B5B3B3] border-[1.3px] bg-[#B5B3B3] border-[#B5B3B3] border-opacity-25 border-dashed bg-opacity-25 py-1 px-2 rounded-xl text-xs sm:text-lg font-medium flex flex-row gap-1 w-fit items-center justify-center"
-        >
-          <TbLanguageHiragana />
-          Hiragana
-        </Link>
+        <div className="flex flex-row gap-2 sm:gap-4">
+          <Link
+            href="/thoughts"
+            className="dark:text-ground-300 border-[1.3px] dark:bg-ground-300 dark:border-ground-300 bg-glow-200 border-glow-200 text-grey-100 border-opacity-25 dark:bg-opacity-25 dark:border-opacity-25 border-dashed bg-opacity-25 py-1 px-2 rounded-xl text-xs sm:text-lg font-medium flex flex-row gap-1 w-fit items-center justify-center"
+          >
+            <TfiPencil />
+            Thoughts
+          </Link>
+          <Link
+            href="/hiragana"
+            className="dark:text-ground-300 border-[1.3px] dark:bg-ground-300 dark:border-ground-300 bg-glow-200 border-glow-200 text-grey-100 border-opacity-25 dark:bg-opacity-25 dark:border-opacity-25 border-dashed bg-opacity-25 py-1 px-2 rounded-xl text-xs sm:text-lg font-medium flex flex-row gap-1 w-fit items-center justify-center"
+          >
+            <TbLanguageHiragana />
+            Hiragana
+          </Link>
+        </div>
       </div>
     </div>
   );
