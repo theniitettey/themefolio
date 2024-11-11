@@ -14,11 +14,11 @@ const Posts: React.FC<IPost> = ({ title, date, id }) => {
       href={`/blog/${id}`}
       className="flex flex-col gap-[0.1rem] sm:gap-[0.4rem]"
     >
-      <div className="flex flex-row justify-between items-center text-xs sm:text-lg">
+      <div className="flex flex-row justify-between items-center text-xs sm:text-lg text-grey-100 dark:text-white">
         <h3>{title}</h3>
-        <p className="text-slate-300">{date}</p>
+        <p className="dark:text-slate-300 text-grey-200">{date}</p>
       </div>
-      <div className="h-[1px] w-full bg-[#262626]"></div>
+      <div className="h-[1px] w-full bg-ground-100"></div>
     </Link>
   );
 };

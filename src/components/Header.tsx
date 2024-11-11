@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Icons } from "@/assets";
+import { SchemeToggle } from "@/components";
 import Link from "next/link";
 import { FiGithub, FiTwitter, FiMail, FiHome } from "react-icons/fi";
 import { TfiPencil } from "react-icons/tfi";
@@ -27,8 +28,8 @@ const NavLink: React.FC<NavLinkProps> = ({
       href={href}
       className={`flex flex-row items-center justify-center gap-1 text-xs sm:text-lg sm:gap-2 font-medium ${
         isActive
-          ? "text-white border-[1.3px] bg-slate-400 border-slate-400 border-opacity-25  bg-opacity-25 py-1 px-2 rounded-xl"
-          : "text-slate-300"
+          ? "bg-glow-200 text-glow-200 border-glow-200 dark:text-white border-[1.3px] dark:bg-slate-400 dark:border-slate-400 border-opacity-25  bg-opacity-25 py-1 px-2 rounded-xl"
+          : "dark:text-slate-300 text-grey-200 "
       }`}
     >
       {isActive && icon}
@@ -74,9 +75,9 @@ const Header = () => {
           alt="Colored logo"
           className="w-5 h-5 sm:w-10 sm:h-10"
         />
-        <div className="flex flex-row items-center justify-center gap-3 border-[1.6px] border-solid bg-[#424242] border-[#afafaf] border-opacity-20 rounded-xl p-1 bg-opacity-40 sm:p-3 sm:rounded-2xl">
+        <div className="flex flex-row items-center justify-center gap-3 border-[1.6px] border-solid dark:bg-ground-400 dark:border-ground-500 border-ground-700 bg-ground-700 border-opacity-20 rounded-xl p-1 dark:bg-opacity-40 bg-opacity-20 sm:p-3 sm:rounded-2xl">
           <Link href="mailto:michaelperryt97@gmail.com" target="blank">
-            <FiMail size={15} className="text-white" />
+            <FiMail size={15} className="text-white " />
           </Link>
           <Link href="https://x.com/theniitettey" target="blank">
             <FiTwitter size={15} className="text-white" />
@@ -86,7 +87,7 @@ const Header = () => {
           </Link>
         </div>
       </div>
-      <div>
+      <div className="flex flex-row items-center justify-between">
         <nav className="flex flex-row items-center justify-start gap-2 sm:gap-4">
           {Links.map((link) => (
             <NavLink
@@ -102,6 +103,7 @@ const Header = () => {
             />
           ))}
         </nav>
+        <SchemeToggle />
       </div>
     </header>
   );

@@ -40,28 +40,32 @@ const Footer = () => {
   }, []);
   return (
     <footer className="mt-4 sm:mt-8">
-      <div className="h-[1px] w-full bg-slate-400 mb-4 sm:mb-8"></div>
+      <div className="h-[1px] w-full bg-ground-100 dark:bg-slate-400 mb-4 sm:mb-8"></div>
       <div className="flex flex-row justify-between items-center">
-        <div className="flex flex-col items-start justify-start gap-1 sm:gap-3 text-xs sm:text-xl font-medium text-slate-400">
+        <div className="flex flex-col items-start justify-start gap-1 sm:gap-3 text-xs sm:text-xl font-medium dark:text-slate-400 text-grey-100">
           <div>
             &copy;{" " + currentYear} Michael Perry Tettey. All rights reserved.{" "}
           </div>
           <div className={`${roboto.className}`}>
             version:{" "}
-            <span className="text-green-600 bg-slate-600">{currentYear}</span>
+            <span className="text-green-600 dark:bg-slate-600">
+              {currentYear}
+            </span>
             .11.10/16{" "}
           </div>
 
           <div className="flex flex-row items-center justify-center gap-1">
             <div className={`h-2 w-2 rounded-full bg-green-600`}></div>
-            <h3 className="text-slate-200">{systemStatusMessage}</h3>
+            <h3 className="dark:text-slate-200 text-grey-200">
+              {systemStatusMessage}
+            </h3>
           </div>
           <Link
             href="https://github.com/michaelperryjnr/themefolio"
             target="blank"
-            className="flex flex-row items-center justify-center gap-3 border-[1.6px] border-solid bg-[#424242] border-[#afafaf] border-opacity-20 rounded-xl py-1 px-2 bg-opacity-40 sm:rounded-2xl"
+            className="dark:text-ground-300 border-[1.3px] dark:bg-ground-300 dark:border-ground-300 bg-glow-200 border-glow-200 text-grey-100 border-opacity-25 dark:bg-opacity-25 dark:border-opacity-25 border-solid bg-opacity-25 py-1 px-2 rounded-xl text-xs sm:text-lg font-medium flex flex-row gap-1 w-fit items-center justify-center"
           >
-            <FiGithub size={15} className="text-white" />
+            <FiGithub size={15} />
             Source Code
           </Link>
         </div>
