@@ -59,7 +59,7 @@ const Home = () => {
         </h2>
       </div>
 
-      <div className="relative sm:w-[60%]">
+      <div className="relative sm:w-[60%] -mt-10">
         <div className="absolute inset-0 flex items-center justify-end overflow-hidden">
           <Image
             src={Icons.homeBg}
@@ -75,7 +75,7 @@ const Home = () => {
         <h2 className="text-sm sm:text-xl font-normal dark:text-ground-200 text-grey-200">
           Junior Software Engineer at QuiverTech Solutions
         </h2>
-        <p className="mt-2 text-xs sm:text-lg sm:mt-8 font-medium text-grey-100 dark:text-white">
+        <p className="mt-2 text-sm sm:text-lg sm:mt-8 font-medium text-grey-100 dark:text-white">
           Building polished software experiences with magical, unique and
           delightful details, for the web. I aim to create beautiful and
           functional software that is both intuitive and enjoyable for users.

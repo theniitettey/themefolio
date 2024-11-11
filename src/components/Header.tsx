@@ -28,7 +28,7 @@ const NavLink: React.FC<NavLinkProps> = ({
       href={href}
       className={`flex flex-row items-center justify-center gap-1 text-xs sm:text-lg sm:gap-2 font-medium ${
         isActive
-          ? "bg-glow-200 text-glow-200 border-glow-200 dark:text-white border-[1.3px] dark:bg-slate-400 dark:border-slate-400 border-opacity-25  bg-opacity-25 py-1 px-2 rounded-xl"
+          ? "bg-glow-200 text-glow-200 border-glow-200 dark:text-white border-[1.3px] dark:bg-slate-400 dark:border-slate-400 border-opacity-25  bg-opacity-25 py-1 px-2 rounded-xl dark:bg-opacity-[0.55]"
           : "dark:text-slate-300 text-grey-200 "
       }`}
     >
