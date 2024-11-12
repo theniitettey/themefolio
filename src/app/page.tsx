@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Posts } from "@/components";
+import { Posts, MotionDiv, MotionHeader } from "@/components";
 import { Icons, Images } from "@/assets";
 import { FaRegHandPeace } from "react-icons/fa6";
 import { BsJournalText } from "react-icons/bs";
@@ -34,6 +34,19 @@ const recentBlogs: Array<IPost> = [
   },
 ];
 
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const childVariants = {
+  hidden: { opacity: 0, y: -20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
 const Home = () => {
   const [posts, setPosts] = useState<Array<IPost>>(recentBlogs);
 
@@ -42,8 +55,17 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="flex flex-col gap-20">
-      <div>
+    <MotionDiv
+      initial="hidden"
+      animate="visible"
+      variants={containerVariants}
+      className="flex flex-col gap-20"
+    >
+      <MotionDiv
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+      >
         <div
           className="flex flex-row items-center justify-center gap-1 border-[2px] border-solid dark:bg-glow-100 rounded-xl p-1 bg-opacity-50 dark:bg-opacity-50 dark:text-glow-100 dark:border-glow-100
         bg-glow-200 text-glow-200 border-glow-200 font-semibold text-xs w-fit mt-20 sm:text-base sm:mt-20 sm:rounded-2xl"
@@ -57,9 +79,12 @@ const Home = () => {
         <h2 className="mt-2 sm:mt-2 font-bold text-sm sm:text-lg text-grey-100 dark:text-white">
           いらっしゃいませ
         </h2>
-      </div>
+      </MotionDiv>
 
-      <div className="relative sm:w-[60%] -mt-10">
+      <MotionDiv
+        variants={childVariants}
+        className="relative sm:w-[60%] -mt-10"
+      >
         <div className="absolute inset-0 flex items-center justify-end overflow-hidden">
           <Image
             src={Icons.homeBg}
@@ -69,12 +94,16 @@ const Home = () => {
             className="opacity-60 z-0 sm:hidden"
           />
         </div>
-        <h1 className="text-xl sm:text-3xl font-bold text-grey-100 dark:text-white">
+        <MotionHeader
+          variants={childVariants}
+          className="text-xl sm:text-3xl font-bold text-grey-100 dark:text-white"
+        >
           Michael Perry Nii Tettey
-        </h1>
-        <h2 className="text-sm sm:text-xl font-normal dark:text-ground-200 text-grey-200">
-          Junior Software Engineer at QuiverTech Solutions
-        </h2>
+          <h2 className="text-sm sm:text-xl font-normal dark:text-ground-200 text-grey-200">
+            Junior Software Engineer at QuiverTech Solutions
+          </h2>
+        </MotionHeader>
+
         <p className="mt-2 text-sm sm:text-lg sm:mt-8 font-medium text-grey-100 dark:text-white">
           Building polished software experiences with magical, unique and
           delightful details, for the web. I aim to create beautiful and
@@ -91,8 +120,8 @@ const Home = () => {
           height={100}
           className="mt-4 sm:mt-8 "
         />
-      </div>
-      <div className="flex flex-col gap-4">
+      </MotionDiv>
+      <MotionDiv variants={childVariants} className="flex flex-col gap-4">
         <div className="flex flex-row gap-1 font-semibold text-md items-center justify-left sm:text-lg text-grey-100 dark:text-white">
           <MdOutlineFeaturedPlayList size={20} />
           Featured
@@ -166,8 +195,8 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="flex flex-col gap-4">
+      </MotionDiv>
+      <MotionDiv variants={childVariants} className="flex flex-col gap-4">
         <div className="flex flex-row gap-1 font-semibold text-grey-100 dark:text-white text-md sm:text-lg items-center justify-left">
           <BsJournalText size={20} />
           Recent Posts
@@ -206,8 +235,8 @@ const Home = () => {
             Hiragana
           </Link>
         </div>
-      </div>
-    </div>
+      </MotionDiv>
+    </MotionDiv>
   );
 };
 
