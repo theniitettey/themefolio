@@ -12,6 +12,10 @@
     --background: #171717;
     --foreground: #ededed;
   }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 body {
