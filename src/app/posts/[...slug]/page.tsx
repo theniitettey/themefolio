@@ -44,7 +44,7 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams(): Promise<
-  Array<{ params: { slug: string[] } }>
+  Array<{ params: PostProps["params"] }>
 > {
   return allPosts.map((thought) => ({
     params: {
