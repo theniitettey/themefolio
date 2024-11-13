@@ -1,21 +1,15 @@
-import NotFound from "@/app/not-found";
+import { notFound } from "next/navigation";
 import { allPosts } from "@/./.contentlayer/generated";
 import { Metadata } from "next";
 import { MDXComponent as Mdx, MotionDiv } from "@/components";
-
-interface PostProps {
-  params: {
-    slug: string[];
-  };
-}
 
 const variant = {
   hidden: { opacity: 0, y: -50 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-async function getPostsFromParams(params: PostProps["params"]) {
-  const slugString = params?.slug?.join("/");
+async function getPostsFromParams(slug: string[]) {
+  const slugString = slug?.join("/");
   const post = allPosts.find((post) => post.slugAsParams === slugString);
 
   if (!post) {
@@ -25,10 +19,8 @@ async function getPostsFromParams(params: PostProps["params"]) {
   return post;
 }
 
-export async function generateMetadata({
-  params,
-}: PostProps): Promise<Metadata> {
-  const post = await getPostsFromParams(params);
+export async function generateMetadata({ params }: any): Promise<Metadata> {
+  const post = await getPostsFromParams(params.slug);
 
   if (!post) {
     return {};
@@ -40,17 +32,17 @@ export async function generateMetadata({
   };
 }
 
-export async function generateStaticParams(): Promise<PostProps["params"][]> {
-  return allPosts.map((post) => ({
-    slug: post.slugAsParams.split("/"),
+export async function generateStaticParams() {
+  return allPosts.map((thought) => ({
+    slug: thought.slugAsParams.split("/"),
   }));
 }
 
-export default async function Page({ params }: PostProps) {
-  const thought = await getPostsFromParams(params);
+export default async function Page({ params }: any) {
+  const thought = await getPostsFromParams(params.slug);
 
   if (!thought) {
-    return <NotFound />;
+    notFound();
   }
 
   return (
