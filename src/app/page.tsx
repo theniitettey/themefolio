@@ -59,7 +59,7 @@ const Home = () => {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="flex flex-col gap-20"
+      className="flex flex-col gap-20 mb-20"
     >
       <MotionDiv
         initial={{ opacity: 0, scale: 0.5 }}
