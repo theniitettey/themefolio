@@ -69,8 +69,8 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className="bg-background text-grey py-4 fixed bottom-0 left-0 right-0 z-50 text-xs sm:text-lg mt-2 border-t-[1.4px] border-solid border-t-slate-800 lg:container lg:mx-auto sm:w-full lg:w-[50%]">
-      <div className="px-4 flex justify-between items-center">
+    <footer className="bg-background text-grey p-4 fixed bottom-0 left-0 right-0 z-50 text-xs sm:text-lg mt-2 border-t-[1.4px] border-solid border-t-slate-800 lg:container lg:mx-auto sm:w-full lg:w-[50%]">
+      <div className="flex justify-between items-center">
         <Link href="/" className="dark:text-glow-100 text-glow-200">
           © Nii Tettey
         </Link>

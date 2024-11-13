@@ -1,36 +1,44 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Content Structure Documentation for Portfolio Site
 
-## Getting Started
+This document describes the types of content that you can create for your portfolio site. Your content will be defined using the `contentlayer` system. Below are the document types you can create, the fields they accept, and how to use them.
 
-First, run the development server:
+### 1. **Page**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+The `Page` type is used for defining pages in your portfolio site, like the homepage or about me page.
+
+#### Fields:
+
+- `title` (required)  
+  **Type**: `string`  
+  The title of the page.
+
+- `description` (optional)  
+  **Type**: `string`  
+  A brief description of the page.
+
+#### Computed Fields:
+
+- `slug`:  
+  **Type**: `string`  
+  Resolves to the URL path of the page (e.g., `/about-me` for the `about-me.mdx` file).
+
+- `slugAsParams`:  
+  **Type**: `string`  
+  Resolves to the URL path used as URL parameters (e.g., `about-me` for the `about-me.mdx` file).
+
+- `readTimeMinutes`:  
+  **Type**: `string`  
+  Computes the estimated reading time in minutes based on the number of words in the content. For example, `5 min read`.
+
+#### Example:
+
+```mdx
+---
+title: "About Me"
+description: "A little bit about myself."
+---
+
+# About Me
+
+Welcome to my portfolio site!
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
