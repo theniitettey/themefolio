@@ -28,7 +28,9 @@ async function getThoughtsFromParams(params: PostProps["params"]) {
 
 export async function generateMetadata({
   params,
-}: PostProps): Promise<Metadata> {
+}: {
+  params: PostProps["params"];
+}): Promise<Metadata> {
   const post = await getThoughtsFromParams(params);
 
   if (!post) {
@@ -41,9 +43,13 @@ export async function generateMetadata({
   };
 }
 
-export async function generateStaticParams(): Promise<PostProps["params"][]> {
+export async function generateStaticParams(): Promise<
+  Array<{ params: { slug: string[] } }>
+> {
   return allPosts.map((thought) => ({
-    slug: thought.slugAsParams.split("/"),
+    params: {
+      slug: thought.slugAsParams.split("/"),
+    },
   }));
 }
 
