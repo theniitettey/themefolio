@@ -3,16 +3,6 @@ import { allPosts } from "@/./.contentlayer/generated";
 import { Metadata } from "next";
 import { MDXComponent as Mdx, MotionDiv } from "@/components";
 
-// Use specific types for dynamic route params
-type Params = {
-  slug: string[];
-};
-
-type Props = {
-  params: Params;
-  searchParams: { [key: string]: string | string[] | undefined };
-};
-
 const variant = {
   hidden: { opacity: 0, y: -50 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
@@ -29,7 +19,7 @@ async function getPostsFromParams(slug: string[]) {
   return post;
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: any): Promise<Metadata> {
   const post = await getPostsFromParams(params.slug);
 
   if (!post) {
@@ -37,19 +27,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: post.title,
+    title: post.title + " | Posts",
     description: post.description,
   };
 }
 
-export async function generateStaticParams(): Promise<Params[]> {
+export async function generateStaticParams() {
   return allPosts.map((thought) => ({
     slug: thought.slugAsParams.split("/"),
   }));
 }
 
-// Remove the GenerateMetadataProps type and use Props directly
-export default async function Page({ params, searchParams }: Props) {
+export default async function Page({ params }: any) {
   const thought = await getPostsFromParams(params.slug);
 
   if (!thought) {
