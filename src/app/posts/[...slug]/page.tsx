@@ -36,8 +36,9 @@ export async function generateMetadata({
   }
 
   return {
-    title: post.title + " | Posts", // Title with "Posts" appended
-    description: post.description, // Description of the post
+    title:
+      post.title.charAt(0).toUpperCase() + post.title.slice(1) + " | Posts",
+    description: post.description,
   };
 }
 
@@ -64,7 +65,7 @@ export default async function PostsPage({ params }: PostsProps) {
     >
       <article className="prose dark:prose-invert leading-8">
         <h1 className="mt-6 sm:mt-10 mb-2 text-xl sm:text-3xl font-bold">
-          {post.title}
+          {post.title.charAt(0).toUpperCase() + post.title.slice(1)}
         </h1>
 
         <div className="flex gap-x-2 w-full">
