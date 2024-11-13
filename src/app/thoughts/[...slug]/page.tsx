@@ -1,13 +1,13 @@
 import { notFound } from "next/navigation";
 import { allThoughts } from "@/./.contentlayer/generated";
-
 import { Metadata } from "next";
 import { MDXComponent as Mdx, MotionDiv } from "@/components";
+import { th } from "date-fns/locale";
 
 interface ThoughtsProps {
-  params: {
+  params: Promise<{
     slug: string[];
-  };
+  }>;
 }
 
 const variant = {
@@ -15,9 +15,11 @@ const variant = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-async function getThoughtsFromParams(params: ThoughtsProps["params"]) {
-  const slug = params?.slug?.join("/");
-  const thought = allThoughts.find((thought) => thought.slugAsParams === slug);
+async function getThoughtsFromParams(slug: string[]): Promise<any | null> {
+  const slugString = slug.join("/");
+  const thought = allThoughts.find(
+    (thought) => thought.slugAsParams === slugString
+  );
 
   if (!thought) {
     return null;
@@ -29,27 +31,27 @@ async function getThoughtsFromParams(params: ThoughtsProps["params"]) {
 export async function generateMetadata({
   params,
 }: ThoughtsProps): Promise<Metadata> {
-  const thought = await getThoughtsFromParams(params);
+  const resolvedParams = await params;
+  const thought = await getThoughtsFromParams(resolvedParams.slug);
 
   if (!thought) {
     return {};
   }
 
   return {
-    title: thought.title,
+    title: thought.title + " | Thoughts",
   };
 }
 
-export async function generateStaticParams(): Promise<
-  ThoughtsProps["params"][]
-> {
+export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
   return allThoughts.map((thought) => ({
     slug: thought.slugAsParams.split("/"),
   }));
 }
 
 export default async function ThoughtPage({ params }: ThoughtsProps) {
-  const thought = await getThoughtsFromParams(params);
+  const resolvedParams = await params;
+  const thought = await getThoughtsFromParams(resolvedParams.slug);
 
   if (!thought) {
     notFound();
@@ -68,7 +70,7 @@ export default async function ThoughtPage({ params }: ThoughtsProps) {
         </h1>
 
         <div className="flex gap-x-2 w-full">
-          <p className="text-sm sm:text-xl font-normal  mt-0 text-slate-700 dark:text-slate-200">
+          <p className="text-sm sm:text-xl font-normal mt-0 text-slate-700 dark:text-slate-200">
             {new Date(thought.date).toLocaleDateString("en-US", {
               year: "numeric",
               month: "long",
