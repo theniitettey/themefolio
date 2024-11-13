@@ -78,7 +78,7 @@ const Header = () => {
           />
         </Link>
         <div className="flex flex-row items-center justify-center gap-3 border-[1.6px] border-solid dark:bg-ground-400 dark:border-ground-500 border-ground-700 bg-ground-700 border-opacity-20 rounded-xl p-1 dark:bg-opacity-40 bg-opacity-20 sm:p-3 sm:rounded-2xl">
-          <Link href="mailto:michaelperryt97@gmail.com" target="blank">
+          <Link href="mailto:admin@theniitettey.live" target="blank">
             <FiMail size={15} className="text-white " />
           </Link>
           <Link href="https://x.com/theniitettey" target="blank">
