@@ -3,17 +3,19 @@ import { allPosts } from "@/./.contentlayer/generated";
 import { Metadata } from "next";
 import { MDXComponent as Mdx, MotionDiv } from "@/components";
 
+interface PostsProps {
+  params: {
+    slug: string[];
+  };
+}
+
 const variant = {
   hidden: { opacity: 0, y: -50 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-interface PageProps {
-  params: any; // Use `any` to bypass type checking
-}
-
-async function getPostsFromParams(slug: string[]) {
-  const slugString = slug?.join("/");
+async function getPostFromParams(slug: string[]): Promise<any | null> {
+  const slugString = slug.join("/");
   const post = allPosts.find((post) => post.slugAsParams === slugString);
 
   if (!post) {
@@ -25,8 +27,8 @@ async function getPostsFromParams(slug: string[]) {
 
 export async function generateMetadata({
   params,
-}: PageProps): Promise<Metadata> {
-  const post = await getPostsFromParams(params.slug);
+}: PostsProps): Promise<Metadata> {
+  const post = await getPostFromParams(params.slug);
 
   if (!post) {
     return {};
@@ -38,16 +40,16 @@ export async function generateMetadata({
   };
 }
 
-export async function generateStaticParams() {
-  return allPosts.map((thought) => ({
-    slug: thought.slugAsParams.split("/"),
+export async function generateStaticParams(): Promise<PostsProps["params"][]> {
+  return allPosts.map((post) => ({
+    slug: post.slugAsParams.split("/"),
   }));
 }
 
-export default async function Page({ params }: PageProps) {
-  const thought = await getPostsFromParams(params.slug);
+export default async function PostsPage({ params }: PostsProps) {
+  const post = await getPostFromParams(params.slug);
 
-  if (!thought) {
+  if (!post) {
     notFound();
   }
 
@@ -59,13 +61,13 @@ export default async function Page({ params }: PageProps) {
       variants={variant}
     >
       <article className="prose dark:prose-invert leading-8">
-        <h1 className="mt-6 sm:mt-10 mb-2 text-xl sm:text-3xl font-bold ">
-          {thought.title}
+        <h1 className="mt-6 sm:mt-10 mb-2 text-xl sm:text-3xl font-bold">
+          {post.title}
         </h1>
 
         <div className="flex gap-x-2 w-full">
-          <p className="text-sm sm:text-xl font-normal  mt-0 text-slate-700 dark:text-slate-200">
-            {new Date(thought.date).toLocaleDateString("en-US", {
+          <p className="text-sm sm:text-xl font-normal mt-0 text-slate-700 dark:text-slate-200">
+            {new Date(post.date).toLocaleDateString("en-US", {
               year: "numeric",
               month: "long",
               day: "numeric",
@@ -74,13 +76,13 @@ export default async function Page({ params }: PageProps) {
           <p className="text-sm sm:text-xl font-normal mt-0 text-slate-700 dark:text-slate-200">
             •
           </p>
-
           <p className="text-sm sm:text-xl font-normal mt-0 text-slate-700 dark:text-slate-200">
-            {thought.readTimeMinutes}
+            {post.readTimeMinutes}
           </p>
         </div>
+
         <div className="min-w-full">
-          <Mdx code={thought.body.code} />
+          <Mdx code={post.body.code} />
         </div>
       </article>
     </MotionDiv>
