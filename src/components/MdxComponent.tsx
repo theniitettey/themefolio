@@ -1,5 +1,6 @@
+"use server";
 import Image from "next/image";
-import { useMDXComponent } from "next-contentlayer2/hooks";
+import { useMDXComponent } from "next-contentlayer/hooks";
 import { ClassAttributes, HTMLAttributes } from "react";
 import { Code } from "bright";
 
