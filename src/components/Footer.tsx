@@ -69,7 +69,7 @@ const Footer = () => {
             Source Code
           </Link>
         </div>
-        <div className="flex flex-col gap-[0.1rem]">
+        <Link href="/" className="flex flex-col gap-[0.1rem]">
           <Image
             src={Icons.outlinedLogo}
             alt="Logo"
@@ -80,7 +80,7 @@ const Footer = () => {
             alt="Logo"
             className="w-10 h-10 sm:w-20 sm:h-20"
           />
-        </div>
+        </Link>
       </div>
     </footer>
   );
