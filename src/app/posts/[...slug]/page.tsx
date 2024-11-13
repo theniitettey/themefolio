@@ -15,7 +15,7 @@ const variant = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-async function getThoughtsFromParams(params: PostProps["params"]) {
+async function getThoughtsFromParams(params: { slug: string[] }) {
   const slug = params?.slug?.join("/");
   const post = allPosts.find((post) => post.slugAsParams === slug);
 
@@ -29,7 +29,7 @@ async function getThoughtsFromParams(params: PostProps["params"]) {
 export async function generateMetadata({
   params,
 }: {
-  params: PostProps["params"];
+  params: { slug: string[] };
 }): Promise<Metadata> {
   const post = await getThoughtsFromParams(params);
 
@@ -44,7 +44,7 @@ export async function generateMetadata({
 }
 
 export async function generateStaticParams(): Promise<
-  Array<{ params: PostProps["params"] }>
+  Array<{ params: { slug: string[] } }>
 > {
   return allPosts.map((thought) => ({
     params: {
