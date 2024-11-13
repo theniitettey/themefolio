@@ -28,7 +28,7 @@ const Thoughts = () => {
               <span>{format(new Date(post.date), "yyyy-MM-dd")}</span>
 
               <h2 className="t hover:underline decoration-grey-100 hover:decoration-1 mb-1">
-                {post.title}
+                {post.title.charAt(0).toUpperCase() + post.title.slice(1)}
               </h2>
             </Link>
           </article>

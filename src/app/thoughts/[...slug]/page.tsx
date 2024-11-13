@@ -39,7 +39,10 @@ export async function generateMetadata({
   }
 
   return {
-    title: thought.title + " | Thoughts",
+    title:
+      thought.title.charAt(0).toUpperCase() +
+      thought.title.slice(1) +
+      " | Thoughts",
   };
 }
 
@@ -66,7 +69,7 @@ export default async function ThoughtPage({ params }: ThoughtsProps) {
     >
       <article className="prose dark:prose-invert leading-8">
         <h1 className="mt-6 sm:mt-10 mb-2 text-xl sm:text-3xl font-bold ">
-          {thought.title}
+          {thought.title.charAt(0).toUpperCase() + thought.title.slice(1)}
         </h1>
 
         <div className="flex gap-x-2 w-full">
