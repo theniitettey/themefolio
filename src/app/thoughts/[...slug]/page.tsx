@@ -57,7 +57,7 @@ export default async function ThoughtPage({ params }: ThoughtsProps) {
 
   return (
     <MotionDiv
-      className="mx-auto"
+      className="mx-auto mb-20"
       initial="hidden"
       animate="visible"
       variants={variant}
