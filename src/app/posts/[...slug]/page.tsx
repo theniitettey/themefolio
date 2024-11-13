@@ -8,6 +8,12 @@ const variant = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
+interface PageProps {
+  params: {
+    slug: string[];
+  };
+}
+
 async function getPostsFromParams(slug: string[]) {
   const slugString = slug?.join("/");
   const post = allPosts.find((post) => post.slugAsParams === slugString);
@@ -19,7 +25,9 @@ async function getPostsFromParams(slug: string[]) {
   return post;
 }
 
-export async function generateMetadata({ params }: any): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const post = await getPostsFromParams(params.slug);
 
   if (!post) {
@@ -38,7 +46,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function Page({ params }: any) {
+export default async function Page({ params }: PageProps) {
   const thought = await getPostsFromParams(params.slug);
 
   if (!thought) {
