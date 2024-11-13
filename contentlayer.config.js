@@ -7,20 +7,19 @@ const computedFields = {
     type: "string",
     resolve: (doc) => `/${doc._raw.flattenedPath}`,
   },
-  slugParams: {
+  slugAsParams: {
     type: "string",
     resolve: (doc) => doc._raw.flattenedPath.split("/").slice(1).join("/"),
   },
   readTimeMinutes: {
-    type: "number",
-    resolve: (doc) =>
-      ((text) => {
-        const wordsPerMinute = 200;
-        const numberOfWords = text.split(/\s/g).length;
-        const minutes = numberOfWords / wordsPerMinute;
-        const readTime = Math.ceil(minutes);
-        return `${readTime} min read`;
-      })(doc.body.raw),
+    type: "string",
+    resolve: (doc) => {
+      const wordsPerMinute = 200;
+      const noOfWords = doc.body.raw.split(/\s/g).length;
+      const minutes = noOfWords / wordsPerMinute;
+      const readTime = Math.ceil(minutes);
+      return `${readTime} min read`;
+    },
   },
 };
 
@@ -35,7 +34,7 @@ export const Page = defineDocumentType(() => ({
     },
     description: {
       type: "string",
-      required: true,
+      required: false,
     },
   },
   computedFields,
@@ -52,22 +51,25 @@ export const Post = defineDocumentType(() => ({
     },
     description: {
       type: "string",
+      required: false,
     },
     date: {
-      type: "string",
+      type: "date",
       required: true,
     },
     tags: {
       type: "list",
-      of: {
-        type: "string",
-      },
+      of: { type: "string" },
+      required: false,
     },
     draft: {
       type: "boolean",
+      required: false,
+      default: false,
     },
     archived: {
       type: "boolean",
+      required: false,
       default: false,
     },
   },
