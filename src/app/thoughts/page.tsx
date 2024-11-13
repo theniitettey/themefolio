@@ -21,10 +21,11 @@ const Thoughts = () => {
         .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
         .map((post) => (
           <article key={post._id} className="">
-            <Link href={post.slug} className="flex gap-8 items-center">
-              <span className="text-base">
-                {format(new Date(post.date), "yyyy-MM-dd")}
-              </span>
+            <Link
+              href={post.slug}
+              className="flex gap-8 items-center mt-6 text-sm sm:text-lg sm:mt-12 font-medium"
+            >
+              <span>{format(new Date(post.date), "yyyy-MM-dd")}</span>
 
               <h2 className="t hover:underline decoration-grey-100 hover:decoration-1 mb-1">
                 {post.title}

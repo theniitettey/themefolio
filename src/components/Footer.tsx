@@ -39,7 +39,7 @@ const Footer = () => {
     setCurrentYear(new Date().getFullYear());
   }, []);
   return (
-    <footer className="mt-4 sm:mt-8">
+    <footer className="fixed bottom-0 w-full mt-4 sm:mt-8 pb-2">
       <div className="h-[1px] w-full bg-ground-100 dark:bg-slate-400 mb-4 sm:mb-8"></div>
       <div className="flex flex-row justify-between items-center">
         <div className="flex flex-col items-start justify-start gap-1 sm:gap-3 text-xs sm:text-xl font-medium dark:text-slate-400 text-grey-100">
