@@ -17,17 +17,23 @@ const components = {
     props: JSX.IntrinsicAttributes &
       ClassAttributes<HTMLHeadingElement> &
       HTMLAttributes<HTMLHeadElement>
-  ) => <h1 className="text-4xl font-bold" {...props} />,
+  ) => <h1 className="text-xl sm:text-3xl font-bold" {...props} />,
   h2: (
     props: JSX.IntrinsicAttributes &
       ClassAttributes<HTMLHeadingElement> &
       HTMLAttributes<HTMLHeadingElement>
-  ) => <h2 {...props} className="text-3xl font-semibold" />,
+  ) => <h2 {...props} className="text-sm sm:text-xl font-semibold" />,
   h3: (
     props: JSX.IntrinsicAttributes &
       ClassAttributes<HTMLHeadingElement> &
       HTMLAttributes<HTMLHeadingElement>
-  ) => <h3 className="text-2xl font-medium" {...props} />,
+  ) => <h3 className="text-sm sm:text-lg font-medium" {...props} />,
+
+  p: (
+    props: JSX.IntrinsicAttributes &
+      ClassAttributes<HTMLParagraphElement> &
+      HTMLAttributes<HTMLParagraphElement>
+  ) => <p className="text-sm sm:text-lg font-normal" {...props} />,
 };
 
 interface MDXComponentProps {
