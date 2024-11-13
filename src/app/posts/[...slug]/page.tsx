@@ -4,9 +4,9 @@ import { Metadata } from "next";
 import { MDXComponent as Mdx, MotionDiv } from "@/components";
 
 interface PostsProps {
-  params: {
+  params: Promise<{
     slug: string[];
-  };
+  }>;
 }
 
 const variant = {
@@ -28,26 +28,28 @@ async function getPostFromParams(slug: string[]): Promise<any | null> {
 export async function generateMetadata({
   params,
 }: PostsProps): Promise<Metadata> {
-  const post = await getPostFromParams(params.slug);
+  const resolvedParams = await params;
+  const post = await getPostFromParams(resolvedParams.slug);
 
   if (!post) {
     return {};
   }
 
   return {
-    title: post.title + " | Posts",
-    description: post.description,
+    title: post.title + " | Posts", // Title with "Posts" appended
+    description: post.description, // Description of the post
   };
 }
 
-export async function generateStaticParams(): Promise<PostsProps["params"][]> {
+export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
   return allPosts.map((post) => ({
     slug: post.slugAsParams.split("/"),
   }));
 }
 
 export default async function PostsPage({ params }: PostsProps) {
-  const post = await getPostFromParams(params.slug);
+  const resolvedParams = await params;
+  const post = await getPostFromParams(resolvedParams.slug);
 
   if (!post) {
     notFound();
