@@ -5,13 +5,13 @@ import Link from "next/link";
 interface IPost {
   title: string;
   date: string;
-  id: string;
+  slug: string;
 }
 
-const Posts: React.FC<IPost> = ({ title, date, id }) => {
+const Posts: React.FC<IPost> = ({ title, date, slug }) => {
   return (
     <Link
-      href={`/blog/${id}`}
+      href={`${slug}`}
       className="flex flex-col gap-[0.1rem] sm:gap-[0.4rem]"
     >
       <div className="flex flex-row justify-between items-center text-xs sm:text-lg text-grey-100 dark:text-white">
