@@ -84,7 +84,7 @@ const Footer = () => {
           {currentYear}.{currentMonth}.{currentDay}
         </div>
         <Link
-          href="https://github.com/your-github-username/your-repo"
+          href="https://github.com/michaelperryjnr/themefolio"
           target="_blank"
           className="border-solid dark:bg-ground-400 dark:border-ground-500 border-ground-700 bg-ground-700 border-opacity-20 rounded-xl p-2 dark:bg-opacity-40 bg-opacity-20 sm:p-3 sm:rounded-2xl"
         >
