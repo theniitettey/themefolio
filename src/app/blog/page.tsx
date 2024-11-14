@@ -1,8 +1,10 @@
+"use client";
 import { allPosts } from "@/.contentlayer/generated";
+import { Post } from "@/.contentlayer/generated/types";
 import { MotionDiv } from "@/components";
 import { formatDistance } from "date-fns";
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const variant = {
   hidden: { opacity: 0, y: -5 },
@@ -10,6 +12,17 @@ const variant = {
 };
 
 export default function BlogPage() {
+  const sortedPosts = allPosts
+    .filter((post) => !post.archived)
+    .sort((a, b) => {
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    });
+  const [posts, setPosts] = useState<Post[]>(sortedPosts);
+
+  useEffect(() => {
+    setPosts(sortedPosts);
+  });
+
   return (
     <MotionDiv
       initial="hidden"
@@ -22,30 +35,25 @@ export default function BlogPage() {
           Blog
         </h1>
 
-        {allPosts
-          .filter((post) => !post.archived)
-          .map((post) => (
-            <article key={post._id} className="mb-8">
-              <Link
-                href={post.slug}
-                className="flex justify-between items-start"
-              >
-                <h2 className="text-xs sm:text-lg text-grey-100 dark:text-white font-medium">
-                  {post.title}
-                </h2>
-                <span className=" text-[0.4rem] sm:text-sm dark:text-ground-200 text-grey-200">
-                  {formatDistance(new Date(post.date), new Date(), {
-                    addSuffix: true,
-                  })}
-                </span>
-              </Link>
-              {post.description && (
-                <p className="text-[0.6rem] sm:text-sm font-light text-ground-600">
-                  {post.description}
-                </p>
-              )}
-            </article>
-          ))}
+        {sortedPosts.map((post) => (
+          <article key={post._id} className="mb-8">
+            <Link href={post.slug} className="flex justify-between items-start">
+              <h2 className="text-xs sm:text-lg text-grey-100 dark:text-white font-medium">
+                {post.title}
+              </h2>
+              <span className=" text-[0.4rem] sm:text-sm dark:text-ground-200 text-grey-200">
+                {formatDistance(new Date(post.date), new Date(), {
+                  addSuffix: true,
+                })}
+              </span>
+            </Link>
+            {post.description && (
+              <p className="text-[0.6rem] sm:text-sm font-light text-ground-600">
+                {post.description}
+              </p>
+            )}
+          </article>
+        ))}
 
         <Link
           href="archive"

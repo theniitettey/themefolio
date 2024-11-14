@@ -1,9 +1,21 @@
+"use client";
 import { allPosts } from "@/.contentlayer/generated";
+import { Post } from "@/.contentlayer/generated/types";
 import Link from "next/link";
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 export default function ArchivePage() {
-  const archivedPosts = allPosts.filter((post) => post.archived);
+  const sortedArchives = allPosts
+    .filter((post) => post.archived)
+    .sort((a, b) => {
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    });
+
+  const [archivedPosts, setArchivedPosts] = useState<Post[]>(sortedArchives);
+
+  useEffect(() => {
+    setArchivedPosts(sortedArchives);
+  });
 
   return (
     <div>
