@@ -21,16 +21,19 @@ const Thoughts = () => {
         .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
         .map((post) => (
           <article key={post._id} className="">
-            <Link
-              href={post.slug}
-              className="flex gap-8 items-center mt-6 text-sm sm:text-lg sm:mt-12 font-medium"
-            >
-              <span>{format(new Date(post.date), "yyyy-MM-dd")}</span>
+            <div className="flex flex-col gap-[0.1rem] items-start">
+              <Link
+                href={post.slug}
+                className="flex gap-4 justify-center items-center mt-6 text-xs sm:text-lg sm:mt-12 font-medium"
+              >
+                <span>{format(new Date(post.date), "yyyy-MM-dd")}</span>
 
-              <h2 className="t hover:underline decoration-grey-100 hover:decoration-1 mb-1">
-                {post.title.charAt(0).toUpperCase() + post.title.slice(1)}
-              </h2>
-            </Link>
+                <h2 className="t hover:underline decoration-grey-100 hover:decoration-1 mb-1">
+                  {post.title.charAt(0).toUpperCase() + post.title.slice(1)}
+                </h2>
+              </Link>
+              <div className="h-[1px] w-full bg-ground-100"></div>
+            </div>
           </article>
         ))}
     </MotionDiv>
