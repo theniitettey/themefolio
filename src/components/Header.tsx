@@ -7,7 +7,7 @@ import { SchemeToggle } from "@/components";
 import Link from "next/link";
 import { FiGithub, FiTwitter, FiMail, FiHome } from "react-icons/fi";
 import { TfiPencil } from "react-icons/tfi";
-import { BsJournalText } from "react-icons/bs";
+import { BsJournalText, BsBell } from "react-icons/bs";
 import { FaSignature } from "react-icons/fa";
 
 interface NavLinkProps {
@@ -48,12 +48,17 @@ const Links: Array<NavLinkProps> = [
   {
     name: "Blog",
     icon: <BsJournalText />,
-    href: ["/blog", "/posts"],
+    href: ["/blog", "/posts", "/archive/posts"],
   },
   {
     name: "Thoughts",
     icon: <TfiPencil />,
     href: ["/thoughts"],
+  },
+  {
+    name: "Asore",
+    icon: <BsBell />,
+    href: ["/asore", "/archive/devotionals"],
   },
   {
     name: "Guestbook",
@@ -66,9 +71,19 @@ const Header = () => {
   const pathname = usePathname();
   const isLinkActive = (href: string | string[]): boolean => {
     if (typeof href === "string") {
-      return href === "/" ? pathname === "/" : pathname.startsWith(href);
+      return href === "/"
+        ? pathname === "/"
+        : pathname === href || pathname.startsWith(`${href}/`);
     }
-    return href.some((path) => pathname.startsWith(path));
+
+    return href.some((path) => {
+      if (pathname === path) return true;
+      if (pathname.startsWith(`${path}/`)) {
+        const isExactSubpath = href.includes(path) && pathname.startsWith(path);
+        return isExactSubpath;
+      }
+      return false;
+    });
   };
 
   return (
