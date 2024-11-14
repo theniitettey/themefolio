@@ -1,6 +1,6 @@
 "use client";
-import { allPosts } from "@/.contentlayer/generated";
-import { Post } from "@/.contentlayer/generated/types";
+import { allAsores } from "@/.contentlayer/generated";
+import { Asore } from "@/.contentlayer/generated/types";
 import { MotionDiv } from "@/components";
 import { formatDistance } from "date-fns";
 import Link from "next/link";
@@ -11,13 +11,13 @@ const variant = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-export default function BlogPage() {
-  const sortedPosts = allPosts
+export default function DevotionalsPage() {
+  const sortedPosts = allAsores
     .filter((post) => !post.archived)
     .sort((a, b) => {
       return new Date(b.date).getTime() - new Date(a.date).getTime();
     });
-  const [posts, setPosts] = useState<Post[]>(sortedPosts);
+  const [posts, setPosts] = useState<Asore[]>(sortedPosts);
 
   useEffect(() => {
     setPosts(sortedPosts);
@@ -32,7 +32,7 @@ export default function BlogPage() {
     >
       <div>
         <h1 className="text-xl sm:text-3xl font-bold flex gap-2 items-center mt-6 mb-4 cursor-pointer">
-          Blog
+          Devotionals
         </h1>
 
         {sortedPosts.map((post) => (
@@ -56,10 +56,10 @@ export default function BlogPage() {
         ))}
 
         <Link
-          href="archive/posts"
+          href="archive/devotionals"
           className="text-sm sm:text-xl font-normal mt-9 hover:underline decoration-grey-100 hover:decoration-1 cursor-pointer italic"
         >
-          Archived Posts
+          Archived Devotionals
         </Link>
       </div>
     </MotionDiv>

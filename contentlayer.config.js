@@ -76,6 +76,47 @@ export const Post = defineDocumentType(() => ({
   computedFields,
 }));
 
+export const Asore = defineDocumentType(() => ({
+  name: "Asore",
+  filePathPattern: `asore/**/*.mdx`,
+  contentType: "mdx",
+  fields: {
+    title: {
+      type: "string",
+      required: true,
+    },
+    description: {
+      type: "string",
+      required: false,
+    },
+    date: {
+      type: "date",
+      required: true,
+    },
+    tags: {
+      type: "list",
+      of: { type: "string" },
+      required: false,
+    },
+    draft: {
+      type: "boolean",
+      required: false,
+      default: false,
+    },
+    archived: {
+      type: "boolean",
+      required: false,
+      default: false,
+    },
+    christian: {
+      type: "boolean",
+      required: false,
+      default: false,
+    },
+  },
+  computedFields,
+}));
+
 export const Thoughts = defineDocumentType(() => ({
   name: "Thoughts",
   filePathPattern: `thoughts/**/*.mdx`,
@@ -95,7 +136,7 @@ export const Thoughts = defineDocumentType(() => ({
 
 export default makeSource({
   contentDirPath: "./content",
-  documentTypes: [Post, Page, Thoughts],
+  documentTypes: [Post, Page, Thoughts, Asore],
   mdx: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex],

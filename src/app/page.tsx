@@ -28,11 +28,16 @@ const childVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 const Home = () => {
-  const [posts, setPosts] = useState<Post[]>(allPosts.slice(0, 3));
+  const sortedPosts = allPosts
+    .filter((post) => !post.archived)
+    .sort((a, b) => {
+      return new Date(b.date).getTime() - new Date(a.date).getTime();
+    });
+  const [posts, setPosts] = useState<Post[]>(sortedPosts.slice(0, 4));
 
   useEffect(() => {
-    setPosts(allPosts.slice(0, 3));
-  }, []);
+    setPosts(sortedPosts.slice(0, 4));
+  });
 
   return (
     <MotionDiv
