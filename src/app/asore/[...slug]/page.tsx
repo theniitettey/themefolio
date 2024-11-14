@@ -39,7 +39,9 @@ export async function generateMetadata({
 
   return {
     title:
-      post.title.charAt(0).toUpperCase() + post.title.slice(1) + " | Posts",
+      post.title.charAt(0).toUpperCase() +
+      post.title.slice(1) +
+      " | Devotionals",
     description: post.description,
   };
 }
