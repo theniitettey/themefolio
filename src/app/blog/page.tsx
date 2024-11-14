@@ -56,7 +56,7 @@ export default function BlogPage() {
         ))}
 
         <Link
-          href="archive"
+          href="archive/posts"
           className="text-sm sm:text-xl font-normal mt-9 hover:underline decoration-grey-100 hover:decoration-1 cursor-pointer italic"
         >
           Archived Posts
