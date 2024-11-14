@@ -13,7 +13,7 @@ import { FaSignature } from "react-icons/fa";
 interface NavLinkProps {
   name: string;
   icon: React.ReactNode;
-  href: string;
+  href: string | string[];
   isActive?: boolean;
 }
 
@@ -23,9 +23,10 @@ const NavLink: React.FC<NavLinkProps> = ({
   isActive = false,
   name,
 }) => {
+  const primaryHref = Array.isArray(href) ? href[0] : href;
   return (
     <Link
-      href={href}
+      href={primaryHref}
       className={`flex flex-row items-center justify-center gap-1 text-xs sm:text-lg sm:gap-2 font-medium ${
         isActive
           ? "bg-glow-200 text-glow-200 border-glow-200 dark:text-white border-[1.3px] dark:bg-slate-400 dark:border-slate-400 border-opacity-25  bg-opacity-25 py-1 px-2 rounded-xl dark:bg-opacity-[0.55]"
@@ -47,26 +48,29 @@ const Links: Array<NavLinkProps> = [
   {
     name: "Blog",
     icon: <BsJournalText />,
-    href: "/blog",
+    href: ["/blog", "/posts"],
   },
   {
     name: "Thoughts",
     icon: <TfiPencil />,
-    href: "/thoughts",
+    href: ["/thoughts"],
   },
   {
     name: "Guestbook",
     icon: <FaSignature />,
-    href: "/guestbook",
+    href: ["/guestbook"],
   },
 ];
 
 const Header = () => {
   const pathname = usePathname();
-  const [active, setActive] = useState<string>(pathname);
-  useEffect(() => {
-    setActive(pathname);
-  }, [pathname]);
+  const isLinkActive = (href: string | string[]): boolean => {
+    if (typeof href === "string") {
+      return href === "/" ? pathname === "/" : pathname.startsWith(href);
+    }
+    return href.some((path) => pathname.startsWith(path));
+  };
+
   return (
     <header className="flex flex-col gap-6 sm:gap-8">
       <div className="flex flex-row items-center justify-between">
@@ -91,17 +95,13 @@ const Header = () => {
       </div>
       <div className="flex flex-row items-center justify-between">
         <nav className="flex flex-row items-center justify-start gap-2 sm:gap-4">
-          {Links.map((link) => (
+          {Links.map((link, index) => (
             <NavLink
-              key={link.href}
+              key={index}
               name={link.name}
               icon={link.icon}
               href={link.href}
-              isActive={
-                link.href === "/"
-                  ? active === "/"
-                  : active.startsWith(link.href)
-              }
+              isActive={isLinkActive(link.href)}
             />
           ))}
         </nav>
