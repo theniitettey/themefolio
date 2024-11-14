@@ -21,7 +21,7 @@ export default function DevotionalsPage() {
 
   useEffect(() => {
     setPosts(sortedPosts);
-  });
+  }, []);
 
   return (
     <MotionDiv
@@ -35,7 +35,7 @@ export default function DevotionalsPage() {
           Devotionals
         </h1>
 
-        {sortedPosts.map((post) => (
+        {posts.map((post) => (
           <article key={post._id} className="mb-8">
             <Link href={post.slug} className="flex justify-between items-start">
               <h2 className="text-xs sm:text-lg text-grey-100 dark:text-white font-medium">

@@ -15,7 +15,7 @@ export default function ArchivePage() {
 
   useEffect(() => {
     setArchivedPosts(sortedArchives);
-  });
+  }, []);
 
   return (
     <div>
