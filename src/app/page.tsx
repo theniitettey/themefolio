@@ -1,7 +1,10 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import { allPosts } from "@/.contentlayer/generated";
 import Image from "next/image";
 import Link from "next/link";
+import { format } from "date-fns";
+import { Post } from "@/.contentlayer/generated/types";
 import { Posts, MotionDiv, MotionHeader } from "@/components";
 import { Icons, Images } from "@/assets";
 import { FaRegHandPeace } from "react-icons/fa6";
@@ -10,29 +13,6 @@ import { FiYoutube } from "react-icons/fi";
 import { MdOutlineFeaturedPlayList } from "react-icons/md";
 import { TfiPencil } from "react-icons/tfi";
 import { TbLanguageHiragana } from "react-icons/tb";
-
-interface IPost {
-  title: string;
-  date: string;
-  id: string;
-}
-const recentBlogs: Array<IPost> = [
-  {
-    title: "Nobody reads",
-    date: "9 Apr",
-    id: "1",
-  },
-  {
-    title: "Node Js: A Gist",
-    date: "4 Apr",
-    id: "2",
-  },
-  {
-    title: "Express Js: A Gist",
-    date: "15 Mar",
-    id: "3",
-  },
-];
 
 const containerVariants = {
   hidden: {},
@@ -48,10 +28,10 @@ const childVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 const Home = () => {
-  const [posts, setPosts] = useState<Array<IPost>>(recentBlogs);
+  const [posts, setPosts] = useState<Post[]>(allPosts.slice(0, 3));
 
   useEffect(() => {
-    setPosts(recentBlogs);
+    setPosts(allPosts.slice(0, 3));
   }, []);
 
   return (
@@ -202,18 +182,18 @@ const Home = () => {
           Recent Posts
         </div>
         <div className="flex flex-col gap-2 sm:gap-4">
-          {posts.map((post) => {
+          {posts.map((post, index) => {
             return (
               <Posts
-                key={post.id}
+                key={index}
                 title={post.title}
-                date={post.date}
-                id={post.id}
+                date={format(new Date(post.date), "d MMM")}
+                slug={post.slug}
               />
             );
           })}
           <Link
-            href="/blogs"
+            href="/blog"
             className="text-ground-600 text-xs sm:text-lg font-medium"
           >
             see all posts
