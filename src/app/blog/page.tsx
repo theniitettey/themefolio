@@ -21,7 +21,7 @@ export default function BlogPage() {
 
   useEffect(() => {
     setPosts(sortedPosts);
-  });
+  }, []);
 
   return (
     <MotionDiv

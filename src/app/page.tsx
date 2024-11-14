@@ -37,7 +37,7 @@ const Home = () => {
 
   useEffect(() => {
     setPosts(sortedPosts.slice(0, 4));
-  });
+  }, []);
 
   return (
     <MotionDiv

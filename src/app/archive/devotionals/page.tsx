@@ -16,7 +16,7 @@ export default function ArchiveDevotionalPage() {
 
   useEffect(() => {
     setArchivedDevotionals(sortedDevotionals);
-  });
+  }, []);
 
   return (
     <div>
