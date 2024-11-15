@@ -6,35 +6,37 @@ export async function GET() {
   try {
     return new ImageResponse(
       (
-        <div
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, #24243e, #302b63, #0f0c29)",
-            fontFamily: "Poppins, sans-serif",
-            gap: "1rem",
-          }}
-          tw="flex flex-row w-[1200px] h-[630px] items-center justify-between px-24 py-16 border-8 border-solid border-slate-800 shadow-2xl shadow-black/30 rounded-lg"
-        >
-          <div tw="flex flex-col w-[70%] space-y-4">
-            <h2 tw="text-6xl font-extrabold tracking-tight text-white leading-tight mb-4">
-              Michael Perry Nii Tettey
-            </h2>
-            <p tw="text-3xl font-medium leading-relaxed text-slate-200">
-              Software engineer by day, writer by night. What's west of
-              Westeros? That's where I'm headed.
-            </p>
-            <p tw="text-cyan-600 text-sm sm:text-xl mt-4">theniitettey.live</p>
-          </div>
-          <div tw="flex items-center justify-center w-[30%]">
-            <img
-              width="280"
-              height="280"
-              src="https://github.com/michaelperryjnr.png"
-              style={{
-                borderRadius: "50%",
-              }}
-              tw="border-4 border-solid border-slate-700 shadow-2xl shadow-black/60 transform hover:scale-105 transition-transform duration-300"
-            />
+        <div tw="h-full w-full flex items-start justify-start">
+          <div tw="flex items-start justify-start h-full">
+            <div tw="flex w-1/2 flex-col justify-between h-full p-12 bg-gray-50">
+              <div tw="flex flex-col">
+                <p tw="text-2xl font-bold mb-0 text-green-600">
+                  theniitettey.live
+                </p>
+                <h1 tw="text-5xl font-black text-left">
+                  Michael Perry Nii Tettey
+                </h1>
+                <p tw="text-xl font-bold text-left"></p>
+              </div>
+              <div tw="flex flex-col">
+                <p tw="text-xl font-bold ml-4">
+                  What's west of westeros? That's where I'm heading
+                </p>
+                <div tw="flex bg-green-800  p-4 rounded-lg">
+                  <p tw="text-3xl font-bold text-white">
+                    Portfolio X Blog X Devotional
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div tw="flex w-1/2 h-full rounded-lg">
+              <img
+                width="100%"
+                height="100%"
+                style={{ objectFit: "cover" }}
+                src="https://github.com/michaelperryjnr.png"
+              />
+            </div>
           </div>
         </div>
       ),
