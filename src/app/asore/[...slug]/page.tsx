@@ -43,6 +43,9 @@ export async function generateMetadata({
       post.title.slice(1) +
       " | Devotionals",
     description: post.description,
+    openGraph: {
+      images: [`/api/og?title=${post.title}&description=${post.description}`],
+    },
   };
 }
 

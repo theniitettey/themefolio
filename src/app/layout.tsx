@@ -27,6 +27,9 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
+  openGraph: {
+    images: ["/api/og/profile"],
+  },
 };
 
 export default function RootLayout({

@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { allThoughts } from "@/./.contentlayer/generated";
 import { Metadata } from "next";
 import { MDXComponent as Mdx, MotionDiv } from "@/components";
-import { th } from "date-fns/locale";
+import { format } from "date-fns";
 
 interface ThoughtsProps {
   params: Promise<{
@@ -43,6 +43,18 @@ export async function generateMetadata({
       thought.title.charAt(0).toUpperCase() +
       thought.title.slice(1) +
       " | Thoughts",
+    description: `Thought for ${format(
+      new Date(thought.date),
+      "d MMM, yyyy"
+    )} by Nii Tettey`,
+    openGraph: {
+      images: [
+        `/api/og?title=${thought.title}&description=thought for ${format(
+          new Date(thought.date),
+          "d MMM, yyyy"
+        )}`,
+      ],
+    },
   };
 }
 

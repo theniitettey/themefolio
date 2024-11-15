@@ -39,6 +39,9 @@ export async function generateMetadata({
     title:
       post.title.charAt(0).toUpperCase() + post.title.slice(1) + " | Posts",
     description: post.description,
+    openGraph: {
+      images: [`/api/og?title=${post.title}&description=${post.description}`],
+    },
   };
 }
 
