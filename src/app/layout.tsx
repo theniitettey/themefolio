@@ -13,7 +13,8 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "The Nii Tettey",
-  description: "Portfolio of Michael Perry Nii Tettey",
+  description:
+    "Portfolio & Blog by Michael Perry Nii Tettey, Software Engineer, Web Developer, and Fullstack Developer and Founder at BBF Labs.",
   keywords: [
     "Portfolio",
     "Michael Perry Nii Tettey",
