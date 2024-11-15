@@ -1,5 +1,23 @@
 import { ImageResponse } from "next/dist/compiled/@vercel/og";
 
+async function loadGoogleFont(font: string, text: string) {
+  const url =
+    "https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap";
+  const css = await (await fetch(url)).text();
+  const resource = css.match(
+    /src: url\((.+)\) format\('(opentype|truetype)'\)/
+  );
+
+  if (resource) {
+    const response = await fetch(resource[1]);
+    if (response.status == 200) {
+      return await response.arrayBuffer();
+    }
+  }
+
+  throw new Error("failed to load font data");
+}
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const title =
@@ -32,7 +50,7 @@ export async function GET(request: Request) {
             }}
             tw="border-4 border-solid border-[#f96d00]/40 shadow-2xl shadow-indigo-600/60 transform hover:scale-105 transition-transform duration-300"
           />
-          <h3 tw="ml-4 text-3xl font-bold text-[#393e46] opacity-90">
+          <h3 tw="ml-4 text-3xl font-bold text-white opacity-90">
             theniitettey
           </h3>
         </div>
@@ -41,6 +59,13 @@ export async function GET(request: Request) {
     {
       width: 1200,
       height: 627,
+      fonts: [
+        {
+          name: "Poppins",
+          data: await loadGoogleFont("Poppins", title),
+          style: "normal",
+        },
+      ],
     }
   );
 }
