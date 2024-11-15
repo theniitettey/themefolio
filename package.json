@@ -17,19 +17,19 @@
     "@types/react-dom": "latest",
     "@vercel/analytics": "^1.0.2",
     "@vercel/postgres": "^0.8.0",
-    "arctic": "^1.9.0",
-    "autoprefixer": "10.4.14",
+    "arctic": "^2.2.2",
+    "autoprefixer": "10.4.20",
     "bright": "^0.8.2",
     "clsx": "^2.1.1",
     "contentlayer": "^0.3.2",
     "date-fns": "^2.30.0",
     "eslint": "8.39.0",
     "eslint-config-next": "latest",
-    "framer-motion": "^10.16.4",
+    "framer-motion": "^11.11.17",
     "next": "latest",
     "next-contentlayer": "^0.3.2",
     "next-themes": "^0.2.1",
-    "postcss": "8.4.23",
+    "postcss": "8.4.49",
     "react": "latest",
     "react-dom": "latest",
     "react-icons": "^5.3.0",
@@ -38,6 +38,6 @@
     "sonner": "^1.4.41",
     "tailwind-merge": "^2.3.0",
     "tailwindcss": "3.3.2",
-    "typescript": "5.0.4"
+    "typescript": "5.6.3"
   }
 }
