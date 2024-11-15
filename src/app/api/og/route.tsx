@@ -1,4 +1,6 @@
-import { ImageResponse } from "next/server";
+import { ImageResponse } from "@vercel/og";
+
+export const runtime = "edge";
 
 export async function GET(request: Request) {
   try {
@@ -33,7 +35,7 @@ export async function GET(request: Request) {
               style={{
                 borderRadius: "50%",
               }}
-              tw="border-4 border-solid border-[#f96d00]/40 shadow-2xl shadow-indigo-600/60 transform hover:scale-105 transition-transform duration-300"
+              tw="border-4 border-solid border-[#f96d00]/40 shadow-2xl shadow-indigo-600/60"
             />
             <h3 tw="ml-4 text-3xl font-bold text-white opacity-90">
               theniitettey
