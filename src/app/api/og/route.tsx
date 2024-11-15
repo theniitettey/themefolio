@@ -1,14 +1,4 @@
 import { ImageResponse } from "next/dist/compiled/@vercel/og";
-import fs from "fs";
-import path from "path";
-import { fileURLToPath } from "url";
-
-const font = fs.promises.readFile(
-  path.join(
-    fileURLToPath(import.meta.url),
-    "../../../fonts/Poppins-Regular.ttf"
-  )
-);
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -51,13 +41,6 @@ export async function GET(request: Request) {
     {
       width: 1200,
       height: 627,
-      fonts: [
-        {
-          name: "Poppins",
-          data: await font,
-          style: "normal",
-        },
-      ],
     }
   );
 }
