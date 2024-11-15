@@ -1,12 +1,6 @@
 import { ImageResponse } from "next/dist/compiled/@vercel/og";
-import { Poppins } from "next/font/google";
 
-export const runtime = "nodejs";
-
-const poppins = Poppins({
-  weight: ["400", "600", "800"],
-  subsets: ["latin"],
-});
+export const runtime = "edge";
 
 export async function GET() {
   return new ImageResponse(
@@ -15,7 +9,7 @@ export async function GET() {
         style={{
           backgroundImage:
             "linear-gradient(to right, #24243e, #302b63, #0f0c29)",
-          fontFamily: `${poppins.style.fontFamily}, sans-serif`,
+          fontFamily: "Poppins, sans-serif",
           gap: "1rem",
         }}
         tw="flex flex-row w-[1200px] h-[630px] items-center justify-between px-24 py-16 border-8 border-solid border-slate-800 shadow-2xl shadow-black/30 rounded-lg"
