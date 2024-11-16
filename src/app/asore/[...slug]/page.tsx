@@ -48,7 +48,7 @@ export async function generateMetadata({
     title: `${postTitle} | Devotional | The Nii Tettey`,
     description:
       post.description || `Devotional post from ${formattedDate} by Nii Tettey`,
-
+    keywords: post.tags || [],
     openGraph: {
       type: "article",
       title: postTitle,
