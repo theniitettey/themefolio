@@ -57,7 +57,7 @@ export async function generateMetadata({
       authors: ["Nii Tettey"],
       images: [
         {
-          url: `/api/og?title=${encodeURIComponent(
+          url: `/api/og/posts?title=${encodeURIComponent(
             postTitle
           )}&description=${encodeURIComponent(
             post.description ||
@@ -79,7 +79,7 @@ export async function generateMetadata({
         post.description || `Blog post from ${formattedDate} by Nii Tettey`,
       creator: "@theniitettey",
       images: [
-        `/api/og?title=${encodeURIComponent(
+        `/api/og/posts?title=${encodeURIComponent(
           postTitle
         )}&description=${encodeURIComponent(
           post.description ||
