@@ -8,7 +8,7 @@ import { Post } from "@/.contentlayer/generated/types";
 import { Posts, MotionDiv, MotionHeader } from "@/components";
 import { Icons, Images } from "@/assets";
 import { FaRegHandPeace } from "react-icons/fa6";
-import { BsJournalText } from "react-icons/bs";
+import { BsJournalText, BsBell } from "react-icons/bs";
 import { FiYoutube } from "react-icons/fi";
 import { MdOutlineFeaturedPlayList } from "react-icons/md";
 import { TfiPencil } from "react-icons/tfi";
@@ -211,6 +211,13 @@ const Home = () => {
           >
             <TfiPencil />
             Thoughts
+          </Link>
+          <Link
+            href="/asore"
+            className="dark:text-ground-300 border-[1.3px] dark:bg-ground-300 dark:border-ground-300 bg-glow-200 border-glow-200 text-grey-100 border-opacity-25 dark:bg-opacity-25 dark:border-opacity-25 border-dashed bg-opacity-25 py-1 px-2 rounded-xl text-xs sm:text-lg font-medium flex flex-row gap-1 w-fit items-center justify-center"
+          >
+            <BsBell />
+            Asore
           </Link>
           <Link
             href="/hiragana"
