@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import { allPosts } from "@/./.contentlayer/generated";
 import { Metadata } from "next";
 import { MDXComponent as Mdx, MotionDiv } from "@/components";
+import { format } from "date-fns";
 
 interface PostsProps {
   params: Promise<{
@@ -32,15 +33,65 @@ export async function generateMetadata({
   const post = await getPostFromParams(resolvedParams.slug);
 
   if (!post) {
-    return {};
+    return {
+      title: "Post Not Found | The Nii Tettey",
+      description: "The requested blog post could not be found.",
+    };
   }
 
+  const formattedDate = format(new Date(post.date), "d MMM, yyyy");
+  const postTitle = post.title.charAt(0).toUpperCase() + post.title.slice(1);
+
   return {
-    title:
-      post.title.charAt(0).toUpperCase() + post.title.slice(1) + " | Posts",
-    description: post.description,
+    title: `${postTitle} | Blog | The Nii Tettey`,
+    description:
+      post.description || `Blog post from ${formattedDate} by Nii Tettey`,
+
     openGraph: {
-      images: [`/api/og?title=${post.title}&description=${post.description}`],
+      type: "article",
+      title: postTitle,
+      description:
+        post.description || `Blog post from ${formattedDate} by Nii Tettey`,
+      url: `https://www.theniitettey.live${post.slug}`,
+      publishedTime: new Date(post.date).toISOString(),
+      authors: ["Nii Tettey"],
+      images: [
+        {
+          url: `/api/og?title=${encodeURIComponent(
+            postTitle
+          )}&description=${encodeURIComponent(
+            post.description ||
+              `Blog post from ${formattedDate}&date=${encodeURIComponent(
+                post.date
+              )}`
+          )}`,
+          width: 1200,
+          height: 630,
+          alt: postTitle,
+        },
+      ],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: postTitle,
+      description:
+        post.description || `Blog post from ${formattedDate} by Nii Tettey`,
+      creator: "@theniitettey",
+      images: [
+        `/api/og?title=${encodeURIComponent(
+          postTitle
+        )}&description=${encodeURIComponent(
+          post.description ||
+            `Blog post from ${formattedDate}&date=${encodeURIComponent(
+              post.date
+            )}`
+        )}`,
+      ],
+    },
+
+    alternates: {
+      canonical: `https://www.theniitettey.live${post.slug}`,
     },
   };
 }
