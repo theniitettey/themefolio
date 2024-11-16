@@ -1,33 +1,11 @@
 import { ImageResponse } from "@vercel/og";
-import { allAsores } from "@/.contentlayer/generated";
 
 export const runtime = "edge";
 
 export async function GET() {
-  const archivedDevotionals = allAsores.filter(
-    (devotional) => devotional.archived
-  );
-  const devotionalCount = archivedDevotionals.length;
-
-  let dateRange = "";
-  if (devotionalCount > 0) {
-    const dates = archivedDevotionals.map(
-      (devotional) => new Date(devotional.date)
-    );
-    const oldestDevotional = new Date(
-      Math.min(...dates.map((date) => date.getTime()))
-    );
-    const newestDevotional = new Date(
-      Math.max(...dates.map((date) => date.getTime()))
-    );
-    dateRange = `from ${oldestDevotional.getFullYear()} to ${newestDevotional.getFullYear()}`;
-  }
-
   const title = "Devotional Archive | The Nii Tettey";
   const description =
-    devotionalCount > 0
-      ? `Access ${devotionalCount} archived daily devotionals ${dateRange}. A collection of spiritual reflections and biblical insights by Nii Tettey.`
-      : "Archive of past daily devotionals and spiritual reflections by Nii Tettey.";
+    "Archive of past daily devotionals ${dateRange}. A collection of spiritual reflections and biblical insights by Nii Tettey.";
   try {
     return new ImageResponse(
       (
