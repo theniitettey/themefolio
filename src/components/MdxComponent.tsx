@@ -17,7 +17,7 @@ const components = {
     props: JSX.IntrinsicAttributes &
       ClassAttributes<HTMLHeadingElement> &
       HTMLAttributes<HTMLHeadElement>
-  ) => <h1 className="text-xl sm:text-3xl font-bold" {...props} />,
+  ) => <h1 className="text-lg sm:text-2xl font-bold" {...props} />,
   h2: (
     props: JSX.IntrinsicAttributes &
       ClassAttributes<HTMLHeadingElement> &

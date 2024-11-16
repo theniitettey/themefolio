@@ -101,37 +101,32 @@ export default async function ThoughtPage({ params }: ThoughtsProps) {
   }
 
   return (
-    <MotionDiv
-      className="mx-auto mb-20"
-      initial="hidden"
-      animate="visible"
-      variants={variant}
-    >
-      <article className="prose dark:prose-invert leading-8">
-        <h1 className="mt-6 sm:mt-10 mb-2 text-xl sm:text-3xl font-bold ">
-          {thought.title.charAt(0).toUpperCase() + thought.title.slice(1)}
-        </h1>
+    <div>
+      <MotionDiv initial="hidden" animate="visible" variants={variant}>
+        <article className="py-6 prose dark:prose-invert">
+          <div className="mb-10">
+            <h1 className="mb-2 text-2xl">{thought.title}</h1>
 
-        <div className="flex gap-x-2 w-full">
-          <p className="text-sm sm:text-xl font-normal mt-0 text-slate-700 dark:text-slate-200">
-            {new Date(thought.date).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
-          </p>
-          <p className="text-sm sm:text-xl font-normal mt-0 text-slate-700 dark:text-slate-200">
-            •
-          </p>
+            <div className="flex gap-x-2">
+              <p className="text-base mt-0 text-slate-700 dark:text-slate-200">
+                {new Date(thought.date).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </p>
+              <p className="text-base mt-0 text-slate-700 dark:text-slate-200">
+                •
+              </p>
 
-          <p className="text-sm sm:text-xl font-normal mt-0 text-slate-700 dark:text-slate-200">
-            {thought.readTimeMinutes}
-          </p>
-        </div>
-        <div className="min-w-full">
+              <p className="text-base mt-0 text-slate-700 dark:text-slate-200">
+                {thought.readTimeMinutes}
+              </p>
+            </div>
+          </div>
           <Mdx code={thought.body.code} />
-        </div>
-      </article>
-    </MotionDiv>
+        </article>
+      </MotionDiv>
+    </div>
   );
 }

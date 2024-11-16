@@ -111,37 +111,32 @@ export default async function PostsPage({ params }: PostsProps) {
   }
 
   return (
-    <MotionDiv
-      className="mx-auto mb-20"
-      initial="hidden"
-      animate="visible"
-      variants={variant}
-    >
-      <article className="prose dark:prose-invert leading-8">
-        <h1 className="mt-6 sm:mt-10 mb-2 text-xl sm:text-3xl font-bold">
-          {post.title.charAt(0).toUpperCase() + post.title.slice(1)}
-        </h1>
+    <div>
+      <MotionDiv initial="hidden" animate="visible" variants={variant}>
+        <article className="py-6 prose dark:prose-invert">
+          <div className="mb-10">
+            <h1 className="mb-2 text-2xl">{post.title}</h1>
 
-        <div className="flex gap-x-2 w-full">
-          <p className="text-sm sm:text-xl font-normal mt-0 text-slate-700 dark:text-slate-200">
-            {new Date(post.date).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
-          </p>
-          <p className="text-sm sm:text-xl font-normal mt-0 text-slate-700 dark:text-slate-200">
-            •
-          </p>
-          <p className="text-sm sm:text-xl font-normal mt-0 text-slate-700 dark:text-slate-200">
-            {post.readTimeMinutes}
-          </p>
-        </div>
+            <div className="flex gap-x-2">
+              <p className="text-base mt-0 text-slate-700 dark:text-slate-200">
+                {new Date(post.date).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </p>
+              <p className="text-base mt-0 text-slate-700 dark:text-slate-200">
+                •
+              </p>
 
-        <div className="min-w-full">
+              <p className="text-base mt-0 text-slate-700 dark:text-slate-200">
+                {post.readTimeMinutes}
+              </p>
+            </div>
+          </div>
           <Mdx code={post.body.code} />
-        </div>
-      </article>
-    </MotionDiv>
+        </article>
+      </MotionDiv>
+    </div>
   );
 }
