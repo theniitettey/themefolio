@@ -35,25 +35,53 @@ export async function generateMetadata({
   const thought = await getThoughtsFromParams(resolvedParams.slug);
 
   if (!thought) {
-    return {};
+    return {
+      title: "Post Not Found | The Nii Tettey",
+      description: "The requested thought could not be found.",
+    };
   }
 
+  const formattedDate = format(new Date(thought.date), "d MMM, yyyy");
+  const postTitle =
+    thought.title.charAt(0).toUpperCase() + thought.title.slice(1);
+
   return {
-    title:
-      thought.title.charAt(0).toUpperCase() +
-      thought.title.slice(1) +
-      " | Thoughts",
-    description: `Thought for ${format(
-      new Date(thought.date),
-      "d MMM, yyyy"
-    )} by Nii Tettey`,
+    title: `${postTitle} | Thoughts | The Nii Tettey`,
+    description: `Thought for ${formattedDate} by Nii Tettey`,
+
     openGraph: {
+      type: "article",
+      title: postTitle,
+      description: `Thought for ${formattedDate} by Nii Tettey`,
+      url: `https://www.theniitettey.live/${thought.slug}`,
+      publishedTime: new Date(thought.date).toISOString(),
+      authors: ["Nii Tettey"],
       images: [
-        `/api/og?title=${thought.title}&description=thought for ${format(
-          new Date(thought.date),
-          "d MMM, yyyy"
-        )}`,
+        {
+          url: `/api/og/thoughts?title=${encodeURIComponent(
+            postTitle
+          )}&date=${encodeURIComponent(thought.date)}`,
+          width: 1200,
+          height: 630,
+          alt: postTitle,
+        },
       ],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: postTitle,
+      description: `Thought for ${formattedDate} by Nii Tettey`,
+      creator: "@theniitettey",
+      images: [
+        `/api/og/thoughts?title=${encodeURIComponent(
+          postTitle
+        )}&date=${encodeURIComponent(thought.date)}`,
+      ],
+    },
+
+    alternates: {
+      canonical: `https://www.theniitettey.live/${thought.slug}`,
     },
   };
 }
