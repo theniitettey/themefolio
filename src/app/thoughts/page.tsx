@@ -22,18 +22,13 @@ const ThoughtsPage = () => {
   }, []);
 
   return (
-    <MotionDiv
-      initial="hidden"
-      animate="visible"
-      variants={variant}
-      className="space-y-4"
-    >
+    <MotionDiv initial="hidden" animate="visible" variants={variant}>
       {thoughts.map((post) => (
         <article key={post._id} className="">
           <div className="flex flex-col gap-[0.1rem] items-start">
             <Link
               href={post.slug}
-              className="flex gap-4 justify-center items-center mt-6 text-xs sm:text-lg sm:mt-12 font-medium"
+              className="flex gap-4 justify-center items-center mt-4 text-xs sm:text-lg sm:mt-8 font-medium"
             >
               <span>{format(new Date(post.date), "yyyy-MM-dd")}</span>
 
