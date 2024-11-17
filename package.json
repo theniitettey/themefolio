@@ -15,7 +15,7 @@
     "@types/node": "18.16.1",
     "@types/react": "latest",
     "@types/react-dom": "latest",
-    "@vercel/analytics": "^1.0.2",
+    "@vercel/analytics": "^1.4.0",
     "@vercel/og": "^0.6.3",
     "@vercel/postgres": "^0.8.0",
     "arctic": "^2.2.2",
