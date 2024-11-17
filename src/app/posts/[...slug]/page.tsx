@@ -41,6 +41,12 @@ export async function generateMetadata({
 
   const formattedDate = format(new Date(post.date), "d MMM, yyyy");
   const postTitle = post.title.charAt(0).toUpperCase() + post.title.slice(1);
+  const ogImageUrl = `/api/og/posts?${new URLSearchParams({
+    title: postTitle,
+    description:
+      post.description || `Blog post from ${formattedDate} by Nii Tettey`,
+    date: new Date(post.date).toISOString(), // Pass the date as ISO string
+  }).toString()}`;
 
   return {
     title: `${postTitle} | Blog | The Nii Tettey`,
@@ -57,14 +63,7 @@ export async function generateMetadata({
       authors: ["Nii Tettey"],
       images: [
         {
-          url: `/api/og/posts?title=${encodeURIComponent(
-            postTitle
-          )}&description=${encodeURIComponent(
-            post.description ||
-              `Blog post from ${formattedDate}&date=${encodeURIComponent(
-                post.date
-              )}`
-          )}`,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: postTitle,
@@ -78,16 +77,7 @@ export async function generateMetadata({
       description:
         post.description || `Blog post from ${formattedDate} by Nii Tettey`,
       creator: "@theniitettey",
-      images: [
-        `/api/og/posts?title=${encodeURIComponent(
-          postTitle
-        )}&description=${encodeURIComponent(
-          post.description ||
-            `Blog post from ${formattedDate}&date=${encodeURIComponent(
-              post.date
-            )}`
-        )}`,
-      ],
+      images: [ogImageUrl],
     },
 
     alternates: {
