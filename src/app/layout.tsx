@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import { Header, Footer, ThemeProvider } from "@/components";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const poppins = Poppins({
   weight: ["400", "500", "600", "700"],
@@ -128,6 +129,7 @@ export default function RootLayout({
           <Footer />
         </ThemeProvider>
         <Analytics mode="production" />
+        <SpeedInsights />
       </body>
     </html>
   );
