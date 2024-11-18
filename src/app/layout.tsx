@@ -134,7 +134,7 @@ export default function RootLayout({
       </body>
       {process.env.NODE_ENV === "production" && (
         <>
-          <Script async src="https://api.theniitettey.live/" />
+          <Script async src="https://api.theniitettey.live/script.js" />
         </>
       )}
     </html>
