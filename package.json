@@ -12,12 +12,12 @@
   "dependencies": {
     "@headlessui/react": "^2.0.4",
     "@tailwindcss/typography": "^0.5.9",
-    "@types/node": "18.16.1",
+    "@types/node": "22.9.0",
     "@types/react": "latest",
     "@types/react-dom": "latest",
     "@vercel/analytics": "^1.4.0",
     "@vercel/og": "^0.6.3",
-    "@vercel/postgres": "^0.8.0",
+    "@vercel/postgres": "^0.10.0",
     "@vercel/speed-insights": "^1.1.0",
     "arctic": "^2.2.2",
     "autoprefixer": "10.4.20",
@@ -25,12 +25,12 @@
     "clsx": "^2.1.1",
     "contentlayer": "^0.3.2",
     "date-fns": "^2.30.0",
-    "eslint": "8.39.0",
+    "eslint": "9.15.0",
     "eslint-config-next": "latest",
     "framer-motion": "^11.11.17",
     "next": "latest",
     "next-contentlayer": "^0.3.2",
-    "next-themes": "^0.2.1",
+    "next-themes": "^0.4.3",
     "postcss": "8.4.49",
     "react": "latest",
     "react-dom": "latest",
@@ -39,7 +39,7 @@
     "remark-math": "^6.0.0",
     "sonner": "^1.4.41",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss": "3.3.2",
+    "tailwindcss": "3.4.15",
     "typescript": "5.6.3"
   }
 }
