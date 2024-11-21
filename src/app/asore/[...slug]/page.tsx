@@ -114,7 +114,7 @@ export default async function PostsPage({ params }: DevotionalProps) {
   return (
     <div className="mb-20">
       <MotionDiv initial="hidden" animate="visible" variants={variant}>
-        <article className="py-6 prose dark:prose-invert">
+        <article className="py-6 prose dark:prose-invert min-w-[300px] max-w-[1010px]">
           <div className="mb-10">
             <h1 className="mb-2 text-2xl text-grey-100 dark:text-white">
               {post.title}
