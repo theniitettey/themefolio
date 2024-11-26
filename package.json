@@ -24,7 +24,7 @@
     "bright": "^0.8.2",
     "clsx": "^2.1.1",
     "contentlayer": "^0.3.2",
-    "date-fns": "^2.30.0",
+    "date-fns": "^4.1.0",
     "eslint": "9.15.0",
     "eslint-config-next": "latest",
     "framer-motion": "^11.11.17",
