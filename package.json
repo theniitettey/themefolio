@@ -25,7 +25,7 @@
     "clsx": "^2.1.1",
     "contentlayer": "^0.3.2",
     "date-fns": "^4.1.0",
-    "eslint": "9.15.0",
+    "eslint": "9.16.0",
     "eslint-config-next": "latest",
     "framer-motion": "^11.11.17",
     "next": "latest",
