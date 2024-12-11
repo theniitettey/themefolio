@@ -1,7 +1,7 @@
 "use server";
 import Image from "next/image";
 import { useMDXComponent } from "next-contentlayer/hooks";
-import { ClassAttributes, HTMLAttributes } from "react";
+import React, { ClassAttributes, HTMLAttributes } from "react";
 import { Code } from "bright";
 import Link from "next/link";
 
@@ -16,9 +16,8 @@ const components = {
   Link,
   pre: Code,
   h1: (
-    props: JSX.IntrinsicAttributes &
-      ClassAttributes<HTMLHeadingElement> &
-      HTMLAttributes<HTMLHeadElement>
+    props: React.HTMLAttributes<HTMLHeadingElement> & 
+    React.ClassAttributes<HTMLHeadingElement>
   ) => (
     <h1
       className="text-lg sm:text-2xl font-bold text-grey-100 dark:text-white"
@@ -26,9 +25,8 @@ const components = {
     />
   ),
   h2: (
-    props: JSX.IntrinsicAttributes &
-      ClassAttributes<HTMLHeadingElement> &
-      HTMLAttributes<HTMLHeadingElement>
+    props: React.HTMLAttributes<HTMLHeadingElement> & 
+    React.ClassAttributes<HTMLHeadingElement>
   ) => (
     <h2
       {...props}
@@ -36,20 +34,17 @@ const components = {
     />
   ),
   h3: (
-    props: JSX.IntrinsicAttributes &
-      ClassAttributes<HTMLHeadingElement> &
-      HTMLAttributes<HTMLHeadingElement>
+    props: React.HTMLAttributes<HTMLHeadingElement> & 
+    React.ClassAttributes<HTMLHeadingElement>
   ) => (
     <h3
       className="text-sm sm:text-lg font-medium text-grey-100 dark:text-white"
       {...props}
     />
   ),
-
   p: (
-    props: JSX.IntrinsicAttributes &
-      ClassAttributes<HTMLParagraphElement> &
-      HTMLAttributes<HTMLParagraphElement>
+    props: React.HTMLAttributes<HTMLParagraphElement> & 
+    React.ClassAttributes<HTMLParagraphElement>
   ) => (
     <p
       className="text-sm sm:text-lg font-normal text-grey-100 dark:text-white"
@@ -57,9 +52,8 @@ const components = {
     />
   ),
   li: (
-    props: JSX.IntrinsicAttributes &
-      HTMLAttributes<HTMLLIElement> &
-      ClassAttributes<HTMLLIElement>
+    props: React.HTMLAttributes<HTMLLIElement> & 
+    React.ClassAttributes<HTMLLIElement>
   ) => (
     <li
       className="text-sm sm:text-lg font-normal text-grey-100 dark:text-white"
