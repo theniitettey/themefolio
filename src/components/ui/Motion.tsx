@@ -2,8 +2,9 @@
 import React from "react";
 import { motion, HTMLMotionProps } from "framer-motion";
 
-type ExtendedHTMLMotionProps<T extends keyof JSX.IntrinsicElements> = 
-  HTMLMotionProps<T> & { 
+type ExtendedHTMLMotionProps<T extends keyof React.ReactHTML> = 
+  HTMLMotionProps<T> & 
+  React.HTMLAttributes<HTMLElement> & { 
     className?: string 
   };
 
