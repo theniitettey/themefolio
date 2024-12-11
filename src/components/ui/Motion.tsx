@@ -2,9 +2,22 @@
 import React from "react";
 import { motion, HTMLMotionProps } from "framer-motion";
 
-type ExtendedHTMLMotionProps<T extends keyof React.ReactHTML> = 
+type HTMLElementTagNames = 
+  | "div" 
+  | "header" 
+  | "footer" 
+  | "section" 
+  | "nav" 
+  | "main" 
+  | "article" 
+  | "aside";
+
+type ExtendedHTMLMotionProps<T extends HTMLElementTagNames> = 
   HTMLMotionProps<T> & 
-  React.HTMLAttributes<HTMLElement> & { 
+  React.DetailedHTMLProps<
+    React.HTMLAttributes<HTMLElement>, 
+    HTMLElement
+  > & { 
     className?: string 
   };
 
