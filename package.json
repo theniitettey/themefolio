@@ -25,7 +25,7 @@
     "clsx": "^2.1.1",
     "contentlayer": "^0.3.2",
     "date-fns": "^4.1.0",
-    "eslint": "9.15.0",
+    "eslint": "9.16.0",
     "eslint-config-next": "latest",
     "framer-motion": "^11.11.17",
     "next": "latest",
@@ -39,7 +39,7 @@
     "remark-math": "^6.0.0",
     "sonner": "^1.4.41",
     "tailwind-merge": "^2.3.0",
-    "tailwindcss": "3.4.15",
+    "tailwindcss": "3.4.16",
     "typescript": "5.7.2"
   }
 }
