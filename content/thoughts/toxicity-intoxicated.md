@@ -1,6 +1,6 @@
 ---
 title: "But I still love... TF!"
-date: "2024-11-26T19:09:16.934Z"
+date: "2025-01-02T19:31:48.522Z"
 ---
 
 I think it the past weeks and probably month's I've written a lot, I mean I've covered everything.. I left out one part apparently. However, I gave hints...<br />
