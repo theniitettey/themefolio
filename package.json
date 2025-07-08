@@ -18,7 +18,7 @@
     "@vercel/analytics": "^1.5.0",
     "@vercel/og": "^0.6.3",
     "@vercel/postgres": "^0.10.0",
-    "@vercel/speed-insights": "^1.1.0",
+    "@vercel/speed-insights": "^1.2.0",
     "arctic": "^3.5.0",
     "autoprefixer": "10.4.21",
     "bright": "^1.0.0",
