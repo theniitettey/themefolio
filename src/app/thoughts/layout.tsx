@@ -52,7 +52,7 @@ export async function generateMetadata(): Promise<Metadata> {
         "Join Michael Perry Nii Tettey's journey through software development, personal growth, and life's adventures. A mix of technical expertise and personal reflections.",
       images: [
         {
-          url: "/api/og/thought",
+          url: "https://www.theniitettey.live/api/og/thought",
           width: 1200,
           height: 630,
           alt: "Michael Perry Nii Tettey's Thoughts - Technical & Personal Insights",
@@ -64,7 +64,7 @@ export async function generateMetadata(): Promise<Metadata> {
       title: "Technical & Personal Insights | The Nii Tettey",
       description:
         "Join my journey through software development, personal growth, and life's adventures. A mix of technical expertise and personal reflections.",
-      images: ["/api/og/thought"],
+      images: ["https://www.theniitettey.live/api/og/thought"],
       creator: "@theniitettey",
     },
     robots: {
