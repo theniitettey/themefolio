@@ -15,6 +15,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://theniitettey.live"),
   title: "Michael Perry Nii Tettey | Software Engineer & Founder at BBF Labs",
   description:
     "Expert software engineer specializing in full-stack web development, React, Node.js, and cloud solutions. Browse my portfolio showcasing innovative projects, technical blog posts, and professional software development services. Founder of BBF Labs, delivering cutting-edge web applications and digital solutions.",

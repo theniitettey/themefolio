@@ -58,7 +58,7 @@ export async function generateMetadata({
       authors: ["Nii Tettey"],
       images: [
         {
-          url: `https://www.theniitettey.live/api/og/thoughts?title=${encodeURIComponent(
+          url: `/api/og/thoughts?title=${encodeURIComponent(
             postTitle
           )}&date=${encodeURIComponent(thought.date)}`,
           width: 1200,
@@ -74,7 +74,7 @@ export async function generateMetadata({
       description: `Thought for ${formattedDate} by Nii Tettey`,
       creator: "@theniitettey",
       images: [
-        `https://www.theniitettey.live/api/og/thoughts?title=${encodeURIComponent(
+        `/api/og/thoughts?title=${encodeURIComponent(
           postTitle
         )}&date=${encodeURIComponent(thought.date)}`,
       ],
