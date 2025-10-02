@@ -75,7 +75,7 @@ export async function GET() {
                       marginBottom: "8px",
                     }}
                   >
-                    Software Engineer & Founder at BBF Labs
+                    AI/ML Enthusiast & Software Engineer
                   </div>
                 </div>
               </div>
