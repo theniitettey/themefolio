@@ -48,7 +48,7 @@ export async function GET() {
                 }}
               >
                 <img
-                  src="https://github.com/michaelperryjnr.png"
+                  src="https://github.com/theniitettey.png"
                   style={{
                     width: "120px",
                     height: "120px",
