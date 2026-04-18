@@ -66,7 +66,7 @@ export async function GET() {
                       marginBottom: "8px",
                     }}
                   >
-                    Michael Perry Nii Tettey
+                    Michael Perry Nii Dromo Tettey
                   </div>
                   <div
                     style={{
