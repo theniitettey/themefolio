@@ -48,7 +48,7 @@ export async function GET() {
                 }}
               >
                 <img
-                  src="https://github.com/michaelperryjnr.png"
+                  src="https://github.com/theniitettey.png"
                   style={{
                     width: "120px",
                     height: "120px",
@@ -75,7 +75,7 @@ export async function GET() {
                       marginBottom: "8px",
                     }}
                   >
-                    Software Engineer & Founder at BBF Labs
+                    AI/ML Enthusiast & Software Engineer
                   </div>
                 </div>
               </div>
