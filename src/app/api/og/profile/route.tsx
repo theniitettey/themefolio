@@ -75,7 +75,7 @@ export async function GET() {
                       marginBottom: "8px",
                     }}
                   >
-                    AI/ML Enthusiast & Software Engineer
+                    Software Engineering, AI/ML & CPH
                   </div>
                 </div>
               </div>
@@ -173,7 +173,7 @@ export async function GET() {
                   />
                 </svg>
                 <div style={{ color: "#ffffd3", fontSize: "16px" }}>
-                  www.theniitettey.live
+                  https://okponglozuck.bflabs.tech
                 </div>
               </div>
             </div>
